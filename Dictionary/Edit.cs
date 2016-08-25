@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Dictionary
 {
-    public partial class Main : Form
+    public partial class Edit : Form
     {
-        public Main()
+        public Edit()
         {
             InitializeComponent();
         }
