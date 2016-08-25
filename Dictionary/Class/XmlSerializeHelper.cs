@@ -3,7 +3,7 @@ using System.IO;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 
-namespace FilmCollection
+namespace Dictionary
 {
     public static class XmlSerializeHelper
     {

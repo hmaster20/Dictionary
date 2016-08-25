@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FilmCollection
+namespace Dictionary
 {
     public enum CategoryVideo
     {
