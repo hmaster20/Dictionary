@@ -19,5 +19,22 @@ possibilities
 enrollment
 cover 
 straightforward 
+received
+invitation 
+hire
+increase
+
+statements
+swiping
+facilitates
+
+regard
+
+encircled
+
+shake
+certain
+hold
+above
 
 
