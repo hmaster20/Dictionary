@@ -6,78 +6,74 @@ namespace Dictionary
     {
         public string WordEn { get; set; }
         public string WordRu { get; set; }
-        public string Type { get; set; }
+
+        private TypeWord _typeWord = TypeWord.Unknown; 
+        [XmlIgnore]
+        public TypeWord Type
+        {
+            get { return _typeWord; }
+            set { _typeWord = value; }
+        }
+
+        private string TypeString                   //  используется для вывода значения в таблицу
+        {
+            get { return TypeToString(Type); }
+            set { Type = StringToType(value); }
+        }
+
+        private static string TypeToString(TypeWord typeWord)
+        {
+            switch (typeWord)
+            {
+                case TypeWord.verb: return "глагол";
+                case TypeWord.noun: return "существительное";
+                case TypeWord.pronoun: return "местоимение";
+                case TypeWord.questions: return "вопросы";
+                case TypeWord.participle: return "причастие";
+                case TypeWord.prepositions: return "предлоги";
+                case TypeWord.Unknown: return "прочие";
+                default: return "прочие";
+            }
+        }
+
+        private static TypeWord StringToType(string type)
+        {
+            switch (type)
+            {
+                case "глагол": return TypeWord.verb;
+                case "существительное": return TypeWord.noun;
+                case "местоимение": return TypeWord.pronoun;
+                case "вопросы": return TypeWord.questions;
+                case "причастие": return TypeWord.participle;
+                case "предлоги": return TypeWord.prepositions;
+                case "прочие": return TypeWord.Unknown;
+                default: return TypeWord.Unknown;
+            }
+        }
 
 
+        public bool Equals(Data _data)
+        {
+            if (_data is Data && _data != null)
+            {
+                Data temp;
+                temp = (Data)_data;
+                if (temp.WordEn == this.WordEn)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            return false;
+        }
 
-
-
-        //#region Обработка типа жанра (комедия, боевик, вестерн)
-        //private GenreVideo _genreVideo = GenreVideo.Unknown;   // Тип  жанра (комедия, боевик, вестерн)
-        //[XmlIgnore]
-        //public GenreVideo GenreVideo
-        //{
-        //    get { return _genreVideo; }
-        //    set { _genreVideo = value; }
-        //}
-
-        //public string GenreString
-        //{
-        //    get { return GenreToString(GenreVideo); }
-        //    set { GenreVideo = StringToGenre(value); }
-        //}
-
-        //public static string GenreToString(GenreVideo genretype)
-        //{
-        //    switch (genretype)
-        //    {
-        //        case GenreVideo.Action: return "Боевик";
-        //        case GenreVideo.Vestern: return "Вестерн";
-        //        case GenreVideo.Comedy: return "Комедия";
-        //        case GenreVideo.Unknown: return "Прочее";
-        //        default: return "Прочее";
-        //    }
-        //}
-
-        //public static GenreVideo StringToGenre(string type)
-        //{
-        //    switch (type)
-        //    {
-        //        case "Боевик": return GenreVideo.Action;
-        //        case "Вестерн": return GenreVideo.Vestern;
-        //        case "Комедия": return GenreVideo.Comedy;
-        //        case "Прочее": return GenreVideo.Unknown;
-        //        default: return GenreVideo.Unknown;
-        //    }
-        //}
-        //#endregion
-
-
-        //public bool Equals(Record rec)
-        //{
-        //    if (rec is Record && rec != null)
-        //    {
-        //        Record temp;
-        //        temp = (Record)rec;
-        //        if (temp.FileName == this.FileName
-        //        && temp.Path == this.Path)
-        //        {
-        //            return true;
-        //        }
-        //        else
-        //        {
-        //            return false;
-        //        }
-        //    }
-        //    return false;
-        //}
-
-
-
-        //public static int CompareByName(Record a, Record b) // Сравнение по названию
-        //{
-        //    return string.Compare(a.Name, b.Name);
-        //}
+        public static int CompareByName(Data a, Data b) // Сравнение по названию
+        {
+            return string.Compare(a.WordEn, b.WordEn);
+        }
 
         //public static int CompareByCategory(Record a, Record b) // Сравнение по категории
         //{
@@ -109,36 +105,5 @@ namespace Dictionary
         ////    return (int)((b.Score - a.Score) * 100);
         ////}
 
-        ////public static int CompareByUserScore(VideoRecord a, VideoRecord b)
-        ////{
-        ////    if (a.UserScore == b.UserScore)
-        ////        return CompareByName(a, b);
-        ////    return (int)((b.UserScore - a.UserScore) * 100);
-        ////}
-
-        //public static int CompareByTime(Record a, Record b) // Сравнение по времени записи
-        //{
-        //    if (a.Time == b.Time)
-        //        return CompareByName(a, b);
-        //    return (int)((b.Time - a.Time) * 100);
-        //}
-
-        //public static int CompareByYear(Record a, Record b) // Сравнение по году
-        //{
-        //    if (a.Year != "" && b.Year != "") { 
-        //    string aYearString = a.Year.Substring(0, 4);
-        //    string bYearString = b.Year.Substring(0, 4);
-
-        //    if (aYearString == bYearString)
-        //        return CompareByName(a, b);
-        //    int aYear = 0;
-        //    int bYear = 0;
-        //    if (int.TryParse(aYearString, out aYear) && int.TryParse(bYearString, out bYear))
-        //        return (int)((bYear - aYear) * 100);
-        //    }
-        //    return CompareByName(a, b);
-        //}
-
     }
-
 }

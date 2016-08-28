@@ -65,28 +65,28 @@ namespace Dictionary
 
             List<Data> filtered = _dictionary.DictionaryList;
 
-           // if (nodeName != "" && nodeName != "Фильмотека")
-                // filtered = filtered.FindAll(v => v.Path == _dictionary.Options.Source + Path.DirectorySeparatorChar + nodeName);
+            // if (nodeName != "" && nodeName != "Фильмотека")
+            // filtered = filtered.FindAll(v => v.Path == _dictionary.Options.Source + Path.DirectorySeparatorChar + nodeName);
 
 
             //int switch_filter = tscbTypeFilter.SelectedIndex;
             //switch (switch_filter)  // фильтр по категориям
             //{
-            //    case 1: filtered = filtered.FindAll(v => v.Category == CategoryVideo.Film); break;
-            //    case 2: filtered = filtered.FindAll(v => v.Category == CategoryVideo.Cartoon); break;
-            //    case 3: filtered = filtered.FindAll(v => v.Category == CategoryVideo.Series); break;
+            //    case 1: filtered = filtered.FindAll(v => v.Type == TypeWord.noun); break;
+            //    case 2: filtered = filtered.FindAll(v => v.Type == TypeWord.participle); break;
+            //    case 3: filtered = filtered.FindAll(v => v.Type == TypeWord.Unknown); break;
             //    default: break;
             //}
 
-                //int switch_sort = tscbSort.SelectedIndex;
-                //switch (switch_sort)  // Сортировка по столбцам
-                //{
-                //    case 0: filtered.Sort(Record.CompareByName); break;
-                //    case 1: filtered.Sort(Record.CompareByTime); break;
-                //    case 2: filtered.Sort(Record.CompareByYear); break;
-                //    case 3: filtered.Sort(Record.CompareByCategory); break;
-                //    default: break;
-                //}
+            //int switch_sort = tscbSort.SelectedIndex;
+            //switch (switch_sort)  // Сортировка по столбцам
+            //{
+            //    case 0: filtered.Sort(Data....CompareByName); break;
+            //    case 1: filtered.Sort(Record.CompareByTime); break;
+            //    case 2: filtered.Sort(Record.CompareByYear); break;
+            //    default: break;
+            //}
+
 
             dgvTable.DataSource = null;
             dgvTable.DataSource = filtered;

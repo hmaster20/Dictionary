@@ -32,10 +32,10 @@
             this.btCancel = new System.Windows.Forms.Button();
             this.tbWordEn = new System.Windows.Forms.TextBox();
             this.tbWordRu = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.cbType = new System.Windows.Forms.ComboBox();
+            this.lEn = new System.Windows.Forms.Label();
+            this.lRu = new System.Windows.Forms.Label();
+            this.lType = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btOk
@@ -62,62 +62,63 @@
             // 
             // tbWordEn
             // 
-            this.tbWordEn.Location = new System.Drawing.Point(113, 36);
+            this.tbWordEn.Location = new System.Drawing.Point(97, 36);
             this.tbWordEn.Name = "tbWordEn";
-            this.tbWordEn.Size = new System.Drawing.Size(166, 20);
+            this.tbWordEn.Size = new System.Drawing.Size(182, 20);
             this.tbWordEn.TabIndex = 0;
             // 
             // tbWordRu
             // 
-            this.tbWordRu.Location = new System.Drawing.Point(113, 75);
+            this.tbWordRu.Location = new System.Drawing.Point(97, 75);
             this.tbWordRu.Name = "tbWordRu";
-            this.tbWordRu.Size = new System.Drawing.Size(166, 20);
+            this.tbWordRu.Size = new System.Drawing.Size(182, 20);
             this.tbWordRu.TabIndex = 1;
             // 
-            // comboBox1
+            // cbType
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(113, 116);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(166, 21);
-            this.comboBox1.TabIndex = 2;
+            this.cbType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbType.FormattingEnabled = true;
+            this.cbType.Location = new System.Drawing.Point(97, 116);
+            this.cbType.Name = "cbType";
+            this.cbType.Size = new System.Drawing.Size(182, 21);
+            this.cbType.TabIndex = 2;
             // 
-            // label1
+            // lEn
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(29, 45);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "label1";
+            this.lEn.AutoSize = true;
+            this.lEn.Location = new System.Drawing.Point(29, 45);
+            this.lEn.Name = "lEn";
+            this.lEn.Size = new System.Drawing.Size(38, 13);
+            this.lEn.TabIndex = 3;
+            this.lEn.Text = "Слово";
             // 
-            // label2
+            // lRu
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(29, 78);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "label1";
+            this.lRu.AutoSize = true;
+            this.lRu.Location = new System.Drawing.Point(29, 78);
+            this.lRu.Name = "lRu";
+            this.lRu.Size = new System.Drawing.Size(51, 13);
+            this.lRu.TabIndex = 3;
+            this.lRu.Text = "Перевод";
             // 
-            // label3
+            // lType
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(29, 119);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "label1";
+            this.lType.AutoSize = true;
+            this.lType.Location = new System.Drawing.Point(29, 119);
+            this.lType.Name = "lType";
+            this.lType.Size = new System.Drawing.Size(26, 13);
+            this.lType.TabIndex = 3;
+            this.lType.Text = "Тип";
             // 
             // Edit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(306, 261);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.lType);
+            this.Controls.Add(this.lRu);
+            this.Controls.Add(this.lEn);
+            this.Controls.Add(this.cbType);
             this.Controls.Add(this.tbWordRu);
             this.Controls.Add(this.tbWordEn);
             this.Controls.Add(this.btCancel);
@@ -140,9 +141,9 @@
         private System.Windows.Forms.Button btCancel;
         private System.Windows.Forms.TextBox tbWordEn;
         private System.Windows.Forms.TextBox tbWordRu;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cbType;
+        private System.Windows.Forms.Label lEn;
+        private System.Windows.Forms.Label lRu;
+        private System.Windows.Forms.Label lType;
     }
 }

@@ -17,6 +17,11 @@ namespace Dictionary
         public Edit()
         {
             InitializeComponent();
+
+            foreach (var item in Enum.GetValues(typeof(TypeWordRus)))
+            {
+                cbType.Items.Add(item);
+            }
         }
 
         public Edit(Data _data)
@@ -27,6 +32,12 @@ namespace Dictionary
 
             tbWordEn.Text = _data.WordEn;
             tbWordRu.Text = _data.WordRu;
+
+            // Создание списка на основе перечисления
+            foreach (var item in Enum.GetValues(typeof(TypeWordRus)))
+            {
+                cbType.Items.Add(item);
+            }
 
 
             //switch (record.Type)
@@ -46,33 +57,42 @@ namespace Dictionary
 
         private void btOk_Click(object sender, EventArgs e)
         {
+            TypeWord type;
+
             //VideoType type;
-            //Existence existence;
+
 
             //switch (cbType.SelectedIndex)
             //{
-            //    case 0: type = VideoType.Movie; break;
+            //    case 0: type = TypeWord.noun; break;
             //    case 1: type = VideoType.Cartoon; break;
             //    case 2: type = VideoType.Series; break;
             //    default: MessageBox.Show("Не выбран тип"); return;
             //}
 
-            //switch (cbExistence.SelectedIndex)
+            //foreach (var item in Enum.GetValues(typeof(TypeWordRus)))
             //{
-            //    case 0: existence = Existence.Have; break;
-            //    case 1: existence = Existence.WillHave; break;
-            //    case 2: existence = Existence.Had; break;
-            //    default: MessageBox.Show("Не выбрано хранение"); return;
+            //    cbType.Items.Add(item);
             //}
+
+            //type = (int)(TypeWord)Enum.Parse(typeof(TypeWord), cbType.SelectedIndex);
+            type = (TypeWord)cbType.SelectedIndex;
+
+
+
+
+
 
             if (data == null)
                 data = new Data();
 
             data.WordEn = tbWordEn.Text;
             data.WordRu = tbWordRu.Text;
+            data.Type = type;
 
             DialogResult = DialogResult.OK;
         }
+
 
         private void btCancel_Click(object sender, EventArgs e)
         {

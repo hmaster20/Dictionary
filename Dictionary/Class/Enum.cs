@@ -2,36 +2,26 @@
 
 namespace Dictionary
 {
-    public enum CategoryVideo
+    public enum TypeWord
     {
-        Film,
-        Series,
-        Cartoon,
+        verb,
+        noun,
+        pronoun,
+        questions,
+        participle,
+        prepositions,
         Unknown
     }
 
-    public enum CategoryVideoRus
+    public enum TypeWordRus
     {
-        Фильм,
-        Сериал,
-        Мультфильм,
-        Прочее
-    }
-
-    public enum GenreVideo
-    {
-        Action,
-        Vestern,
-        Comedy,
-        Unknown
-    }
-
-    public enum GenreVideoRus
-    {
-        Боевик,
-        Вестерн,
-        Комедия,
-        Прочее
+        глагол,
+        существительное,
+        местоимение,
+        вопросы,
+        причастие,
+        предлоги,
+        прочие
     }
 }
 
