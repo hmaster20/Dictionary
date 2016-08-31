@@ -32,4 +32,11 @@ shake
 certain
 hold
 above
+efforts
+similar
+triggering 
+controlling 
+execution
+however
+decided 
 
