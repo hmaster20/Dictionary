@@ -78,11 +78,6 @@ namespace Dictionary
             //type = (int)(TypeWord)Enum.Parse(typeof(TypeWord), cbType.SelectedIndex);
             type = (TypeWord)cbType.SelectedIndex;
 
-
-
-
-
-
             if (data == null)
                 data = new Data();
 
@@ -104,6 +99,5 @@ namespace Dictionary
             if (e.KeyCode == Keys.Escape)
                 Close();
         }
-
     }
 }

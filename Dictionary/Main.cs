@@ -38,12 +38,26 @@ namespace Dictionary
 
         private void Edit_Click(object sender, EventArgs e)
         {
-            //VideoRecord record = GetSelectedRecord();
-            //if (new Edit(record).ShowDialog() == DialogResult.OK)
-            //{
-            //    _dictionary.Save();
-            //    RefreshTable();
-            //}
+            Data data = GetSelectedRecord();
+            if (new Edit(data).ShowDialog() == DialogResult.OK)
+            {
+                _dictionary.Save();
+                RefreshTable();
+            }
+        }
+
+        private Data GetSelectedRecord()  // получение выбранной записи в dgvTable
+        {
+            DataGridView dgv = dgvTable;
+            if (dgv != null && dgv.SelectedRows.Count > 0 && dgv.SelectedRows[0].Index > -1)
+            {
+                Data data = null;
+                if (dgv.SelectedRows[0].DataBoundItem is Data)
+                    data = dgv.SelectedRows[0].DataBoundItem as Data;
+                if (data != null)
+                    return data;
+            }
+            return null;
         }
 
         private void Main_Load(object sender, EventArgs e)
@@ -207,6 +221,7 @@ namespace Dictionary
         private void startButton_Click(object sender, EventArgs e)
         {
             StartTheQuiz();
+            StartTheExam();
             startButton.Enabled = false;
 
             if (rbSelect.Checked) { label1.Text = "Гадаем по словам"; }
@@ -237,6 +252,34 @@ namespace Dictionary
                 answerBox.Select(0, lengthOfAnswer);
             }
         }
+
+     
+
+        private void StartTheExam()
+        {
+            if (_dictionary.DictionaryList.Count > 3)
+            {
+                List<Data> LData = new List<Data>();
+                while (LData.Count < 3)
+                {
+                    Data data = _dictionary.DictionaryList[randomizer.Next(_dictionary.DictionaryList.Count)];
+                    if (LData.Count == 0)
+                    {
+                        LData.Add(data);
+                    }
+                    else
+                    {
+                        if (!LData.Exists(v => v.WordEn == data.WordEn))
+                            LData.Add(data);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Добавьте больше слов в слоаврь.");
+            }
+        }
+
     }
 
 

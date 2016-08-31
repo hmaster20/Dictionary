@@ -70,6 +70,7 @@ namespace Dictionary
             return false;
         }
 
+
         public static int CompareByName(Data a, Data b) // Сравнение по названию
         {
             return string.Compare(a.WordEn, b.WordEn);
