@@ -10,6 +10,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Dictionary
 {
     public partial class Main : Form
@@ -253,7 +254,7 @@ namespace Dictionary
             }
         }
 
-     
+        string word;
 
         private void StartTheExam()
         {
@@ -273,10 +274,47 @@ namespace Dictionary
                             LData.Add(data);
                     }
                 }
+
+                for (int i = 0; i < LData.Count; i++)
+                {
+                    //radioButton[i].Text =
+                }
+                //radioButton1.Text = 
+                //groupBox2.
+                //radioButton1
+                var checkedRadio = new[] { groupBox2 }
+               .SelectMany(g => g.Controls.OfType<RadioButton>()
+                                        .Where(r => r.Checked));
+               
+                // Print name
+                foreach (var c in checkedRadio)
+                { 
+                    System.Diagnostics.Debug.Print(c.Name);
+                    MessageBox.Show(c.Name);
+                }
+
+                var buttons = this.Controls.OfType<RadioButton>()
+                           .FirstOrDefault(n => n.Checked);
+
+
+                //List<RadioButton> buttons = groupBox2.OfType<RadioButton>().ToList();
+                //RadioButton rbTarget = radioButtons
+                //      .Where(r => r.GroupName == "GroupName" && r.IsChecked)
+                //      .Single();
+
+               // List<RadioButton> buttonss = (List<RadioButton>)new[] { groupBox2 }
+               //.SelectMany(g => g.Controls.OfType<RadioButton>());
+               // for (int i = 0; i < buttonss.Count; i++)
+               // {
+               //     buttonss[i].Text = "123_" +i;
+               //     MessageBox.Show(buttonss[i].Name);
+               // }
+
+
             }
             else
             {
-                MessageBox.Show("Добавьте больше слов в слоаврь.");
+                MessageBox.Show("Добавьте больше слов в словарь.");
             }
         }
 

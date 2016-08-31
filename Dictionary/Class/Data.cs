@@ -7,7 +7,7 @@ namespace Dictionary
         public string WordEn { get; set; }
         public string WordRu { get; set; }
 
-        private TypeWord _typeWord = TypeWord.Unknown; 
+        private TypeWord _typeWord = TypeWord.Unknown;
         [XmlIgnore]
         public TypeWord Type
         {
@@ -58,14 +58,7 @@ namespace Dictionary
             {
                 Data temp;
                 temp = (Data)_data;
-                if (temp.WordEn == this.WordEn)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+                return (temp.WordEn == this.WordEn) ? true : false;
             }
             return false;
         }
