@@ -10,7 +10,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
 namespace Dictionary
 {
     public partial class Main : Form
@@ -157,6 +156,25 @@ namespace Dictionary
                 timeLabel.BackColor = Color.Red;
             }
 
+            if (CheckTheAnswereD())
+            {
+                timer1.Stop();
+                MessageBox.Show("Ты крут!",
+                                "Congratulations!");
+                startButton.Enabled = true;
+                timeLabel.BackColor = default(Color);
+
+                var checkedRadio = new[] { groupBox2 }.SelectMany(g => g.Controls.OfType<RadioButton>());
+                foreach (var c in checkedRadio)
+                {
+                    c.Checked = false;
+                    c.Text = "";
+                }
+                label2.Text = "";
+            }
+
+
+
             if (CheckTheAnswer())
             {
                 // If CheckTheAnswer() returns true, then the user 
@@ -275,26 +293,54 @@ namespace Dictionary
                     }
                 }
 
-                for (int i = 0; i < LData.Count; i++)
-                {
-                    //radioButton[i].Text =
-                }
+                //for (int i = 0; i < LData.Count; i++)
+                //{
+                //    //radioButton[i].Text =
+                //}
                 //radioButton1.Text = 
                 //groupBox2.
                 //radioButton1
+
+
+                int i = 0;
+                label2.Text = LData[i].WordEn;
+                word = LData[i].WordRu;
+
                 var checkedRadio = new[] { groupBox2 }
-               .SelectMany(g => g.Controls.OfType<RadioButton>()
-                                        .Where(r => r.Checked));
-               
-                // Print name
+               .SelectMany(g => g.Controls.OfType<RadioButton>());
                 foreach (var c in checkedRadio)
-                { 
-                    System.Diagnostics.Debug.Print(c.Name);
-                    MessageBox.Show(c.Name);
+                {
+                    c.Text = LData[i].WordRu;
+                    //MessageBox.Show(c.Name);
+                    i++;
                 }
 
-                var buttons = this.Controls.OfType<RadioButton>()
-                           .FirstOrDefault(n => n.Checked);
+
+
+
+                // var checkedRadio = new[] { groupBox2 }
+                //.SelectMany(g => g.Controls.OfType<RadioButton>()
+                //                         .Where(r => r.Checked));               
+                // // Print name
+                // foreach (var c in checkedRadio)
+                // { 
+                //     System.Diagnostics.Debug.Print(c.Name);
+                //     MessageBox.Show(c.Name);
+                // }
+
+                //RadioButton rb = new RadioButton();
+
+                //rb.Location = new Point(200, 300 + 1 * 20);
+
+                //groupBox2.Controls.Add(rb);
+
+
+
+
+
+
+                // var buttons = this.Controls.OfType<RadioButton>()
+                //           .FirstOrDefault(n => n.Checked);
 
 
                 //List<RadioButton> buttons = groupBox2.OfType<RadioButton>().ToList();
@@ -302,13 +348,13 @@ namespace Dictionary
                 //      .Where(r => r.GroupName == "GroupName" && r.IsChecked)
                 //      .Single();
 
-               // List<RadioButton> buttonss = (List<RadioButton>)new[] { groupBox2 }
-               //.SelectMany(g => g.Controls.OfType<RadioButton>());
-               // for (int i = 0; i < buttonss.Count; i++)
-               // {
-               //     buttonss[i].Text = "123_" +i;
-               //     MessageBox.Show(buttonss[i].Name);
-               // }
+                // List<RadioButton> buttonss = (List<RadioButton>)new[] { groupBox2 }
+                //.SelectMany(g => g.Controls.OfType<RadioButton>());
+                // for (int i = 0; i < buttonss.Count; i++)
+                // {
+                //     buttonss[i].Text = "123_" +i;
+                //     MessageBox.Show(buttonss[i].Name);
+                // }
 
 
             }
@@ -317,6 +363,25 @@ namespace Dictionary
                 MessageBox.Show("Добавьте больше слов в словарь.");
             }
         }
+
+        private bool CheckTheAnswereD()
+        {
+
+            var checkedRadio = new[] { groupBox2 }
+           .SelectMany(g => g.Controls.OfType<RadioButton>()
+                                    .Where(r => r.Checked));
+            foreach (var c in checkedRadio)
+            {
+                if (c.Text == word)
+                    return true;
+                else
+                    return false;
+            }
+            return false;
+        }
+
+
+
 
     }
 
