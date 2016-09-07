@@ -80,7 +80,13 @@ there
 pair 
 during 
 improve 
-
-
+fetching
+fetch
+customer
+deployment
+heard 
+lot 
+pretty
+beautiful
 
 
