@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.MainMenu = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.создатьБазуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.объединитьБазыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.настройкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tControl = new System.Windows.Forms.TabControl();
+            this.tbDic = new System.Windows.Forms.TabPage();
             this.Edit = new System.Windows.Forms.Button();
             this.dgvTable = new System.Windows.Forms.DataGridView();
             this.colWordEn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,7 +45,7 @@
             this.colType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Delete = new System.Windows.Forms.Button();
             this.Add = new System.Windows.Forms.Button();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tpExam = new System.Windows.Forms.TabPage();
             this.label2 = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
@@ -64,27 +64,27 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tssLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.menuStrip1.SuspendLayout();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.MainMenu.SuspendLayout();
+            this.tControl.SuspendLayout();
+            this.tbDic.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTable)).BeginInit();
-            this.tabPage2.SuspendLayout();
+            this.tpExam.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // menuStrip1
+            // MainMenu
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.файлToolStripMenuItem,
             this.настройкаToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(930, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
+            this.MainMenu.Location = new System.Drawing.Point(0, 0);
+            this.MainMenu.Name = "MainMenu";
+            this.MainMenu.Size = new System.Drawing.Size(930, 24);
+            this.MainMenu.TabIndex = 0;
+            this.MainMenu.Text = "menuStrip1";
             // 
             // файлToolStripMenuItem
             // 
@@ -126,30 +126,30 @@
             this.настройкаToolStripMenuItem.Size = new System.Drawing.Size(78, 20);
             this.настройкаToolStripMenuItem.Text = "Настройка";
             // 
-            // tabControl1
+            // tControl
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 24);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(930, 462);
-            this.tabControl1.TabIndex = 1;
+            this.tControl.Controls.Add(this.tpExam);
+            this.tControl.Controls.Add(this.tbDic);
+            this.tControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tControl.Location = new System.Drawing.Point(0, 24);
+            this.tControl.Name = "tControl";
+            this.tControl.SelectedIndex = 0;
+            this.tControl.Size = new System.Drawing.Size(930, 462);
+            this.tControl.TabIndex = 1;
             // 
-            // tabPage1
+            // tbDic
             // 
-            this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPage1.Controls.Add(this.Edit);
-            this.tabPage1.Controls.Add(this.dgvTable);
-            this.tabPage1.Controls.Add(this.Delete);
-            this.tabPage1.Controls.Add(this.Add);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(922, 436);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Словарь";
+            this.tbDic.BackColor = System.Drawing.SystemColors.Control;
+            this.tbDic.Controls.Add(this.Edit);
+            this.tbDic.Controls.Add(this.dgvTable);
+            this.tbDic.Controls.Add(this.Delete);
+            this.tbDic.Controls.Add(this.Add);
+            this.tbDic.Location = new System.Drawing.Point(4, 22);
+            this.tbDic.Name = "tbDic";
+            this.tbDic.Padding = new System.Windows.Forms.Padding(3);
+            this.tbDic.Size = new System.Drawing.Size(922, 436);
+            this.tbDic.TabIndex = 0;
+            this.tbDic.Text = "Словарь";
             // 
             // Edit
             // 
@@ -221,25 +221,25 @@
             this.Add.UseVisualStyleBackColor = true;
             this.Add.Click += new System.EventHandler(this.Add_Click);
             // 
-            // tabPage2
+            // tpExam
             // 
-            this.tabPage2.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPage2.Controls.Add(this.label2);
-            this.tabPage2.Controls.Add(this.numericUpDown1);
-            this.tabPage2.Controls.Add(this.label1);
-            this.tabPage2.Controls.Add(this.timeLabelName);
-            this.tabPage2.Controls.Add(this.groupBox2);
-            this.tabPage2.Controls.Add(this.groupBox1);
-            this.tabPage2.Controls.Add(this.startButton);
-            this.tabPage2.Controls.Add(this.timeLabel);
-            this.tabPage2.Controls.Add(this.textBox2);
-            this.tabPage2.Controls.Add(this.textBox1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(922, 436);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Проверка знаний";
+            this.tpExam.BackColor = System.Drawing.SystemColors.Control;
+            this.tpExam.Controls.Add(this.label2);
+            this.tpExam.Controls.Add(this.numericUpDown1);
+            this.tpExam.Controls.Add(this.label1);
+            this.tpExam.Controls.Add(this.timeLabelName);
+            this.tpExam.Controls.Add(this.groupBox2);
+            this.tpExam.Controls.Add(this.groupBox1);
+            this.tpExam.Controls.Add(this.startButton);
+            this.tpExam.Controls.Add(this.timeLabel);
+            this.tpExam.Controls.Add(this.textBox2);
+            this.tpExam.Controls.Add(this.textBox1);
+            this.tpExam.Location = new System.Drawing.Point(4, 22);
+            this.tpExam.Name = "tpExam";
+            this.tpExam.Padding = new System.Windows.Forms.Padding(3);
+            this.tpExam.Size = new System.Drawing.Size(922, 436);
+            this.tpExam.TabIndex = 1;
+            this.tpExam.Text = "Проверка знаний";
             // 
             // label2
             // 
@@ -404,20 +404,21 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(930, 486);
             this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
+            this.Controls.Add(this.tControl);
+            this.Controls.Add(this.MainMenu);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MainMenuStrip = this.MainMenu;
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Словарь";
             this.Load += new System.EventHandler(this.Main_Load);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
+            this.MainMenu.ResumeLayout(false);
+            this.MainMenu.PerformLayout();
+            this.tControl.ResumeLayout(false);
+            this.tbDic.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTable)).EndInit();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
+            this.tpExam.ResumeLayout(false);
+            this.tpExam.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
@@ -431,11 +432,11 @@
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip MainMenu;
         private System.Windows.Forms.ToolStripMenuItem файлToolStripMenuItem;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabControl tControl;
+        private System.Windows.Forms.TabPage tbDic;
+        private System.Windows.Forms.TabPage tpExam;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.Button Delete;
         private System.Windows.Forms.Button Add;
