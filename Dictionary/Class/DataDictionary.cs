@@ -4,51 +4,28 @@ using System.Xml.Serialization;
 
 namespace Dictionary
 {
-
     public class Dictionary
     {
         public List<Data> DictionaryList { get; set; }
 
-        public Dictionary()                               // Создание списка
-        {
-            DictionaryList = new List<Data>();
-        }
+        public Dictionary() { DictionaryList = new List<Data>(); }
 
-        public void Add(Data data)                          // Добавление записи
-        {
-            DictionaryList.Add(data);
-        }
+        public void Add(Data data) { DictionaryList.Add(data); }
 
-        public void Save()                                      // Сохранение
-        {
-            XmlSerializeHelper.SerializeAndSave(BaseName, this);
-        }
+        public void Save() { XmlSerializeHelper.SerializeAndSave(BaseName, this); }
 
-        public void Remove(Data data)                       // Удаление записи
-        {
-            DictionaryList.Remove(data);
-        }
+        public void Remove(Data data) { DictionaryList.Remove(data); }
 
-        public void Clear()                                     // Очистить коллекцию
-        {
-            DictionaryList.Clear();
-        }
+        public void Clear() { DictionaryList.Clear(); }
 
-        public static Dictionary Load()                   // Загрузка коллекции
+        public static Dictionary Load()
         {
             Dictionary result;
-            try
-            {
-                result = BaseName.LoadAndDeserialize<Dictionary>();
-            }
-            catch
-            {
-                return new Dictionary();
-            }
+            try { result = BaseName.LoadAndDeserialize<Dictionary>(); }
+            catch { return new Dictionary(); }
             return result;
         }
 
-        [XmlIgnore]
         private static string fileName = "Dictionary.xml";       // Файл базы коллекции
         [XmlIgnore]
         public static string BaseName { get { return fileName; } }

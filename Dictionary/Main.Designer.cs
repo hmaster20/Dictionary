@@ -37,14 +37,6 @@
             this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.настройкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tControl = new System.Windows.Forms.TabControl();
-            this.tbDic = new System.Windows.Forms.TabPage();
-            this.Edit = new System.Windows.Forms.Button();
-            this.dgvTable = new System.Windows.Forms.DataGridView();
-            this.colWordEn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colWordRu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Delete = new System.Windows.Forms.Button();
-            this.Add = new System.Windows.Forms.Button();
             this.tpExam = new System.Windows.Forms.TabPage();
             this.label2 = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
@@ -61,17 +53,25 @@
             this.timeLabel = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbDic = new System.Windows.Forms.TabPage();
+            this.Edit = new System.Windows.Forms.Button();
+            this.dgvTable = new System.Windows.Forms.DataGridView();
+            this.Delete = new System.Windows.Forms.Button();
+            this.Add = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tssLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.colWordEn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colWordRu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qwe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MainMenu.SuspendLayout();
             this.tControl.SuspendLayout();
-            this.tbDic.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTable)).BeginInit();
             this.tpExam.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.tbDic.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTable)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,7 +82,7 @@
             this.настройкаToolStripMenuItem});
             this.MainMenu.Location = new System.Drawing.Point(0, 0);
             this.MainMenu.Name = "MainMenu";
-            this.MainMenu.Size = new System.Drawing.Size(930, 24);
+            this.MainMenu.Size = new System.Drawing.Size(845, 24);
             this.MainMenu.TabIndex = 0;
             this.MainMenu.Text = "menuStrip1";
             // 
@@ -134,92 +134,8 @@
             this.tControl.Location = new System.Drawing.Point(0, 24);
             this.tControl.Name = "tControl";
             this.tControl.SelectedIndex = 0;
-            this.tControl.Size = new System.Drawing.Size(930, 462);
+            this.tControl.Size = new System.Drawing.Size(845, 462);
             this.tControl.TabIndex = 1;
-            // 
-            // tbDic
-            // 
-            this.tbDic.BackColor = System.Drawing.SystemColors.Control;
-            this.tbDic.Controls.Add(this.Edit);
-            this.tbDic.Controls.Add(this.dgvTable);
-            this.tbDic.Controls.Add(this.Delete);
-            this.tbDic.Controls.Add(this.Add);
-            this.tbDic.Location = new System.Drawing.Point(4, 22);
-            this.tbDic.Name = "tbDic";
-            this.tbDic.Padding = new System.Windows.Forms.Padding(3);
-            this.tbDic.Size = new System.Drawing.Size(922, 436);
-            this.tbDic.TabIndex = 0;
-            this.tbDic.Text = "Словарь";
-            // 
-            // Edit
-            // 
-            this.Edit.Location = new System.Drawing.Point(683, 54);
-            this.Edit.Name = "Edit";
-            this.Edit.Size = new System.Drawing.Size(75, 23);
-            this.Edit.TabIndex = 3;
-            this.Edit.Text = "Изменить";
-            this.Edit.UseVisualStyleBackColor = true;
-            this.Edit.Click += new System.EventHandler(this.Edit_Click);
-            // 
-            // dgvTable
-            // 
-            this.dgvTable.AllowUserToAddRows = false;
-            this.dgvTable.AllowUserToDeleteRows = false;
-            this.dgvTable.AllowUserToResizeRows = false;
-            this.dgvTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colWordEn,
-            this.colWordRu,
-            this.colType});
-            this.dgvTable.Location = new System.Drawing.Point(8, 6);
-            this.dgvTable.MultiSelect = false;
-            this.dgvTable.Name = "dgvTable";
-            this.dgvTable.ReadOnly = true;
-            this.dgvTable.RowHeadersVisible = false;
-            this.dgvTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTable.Size = new System.Drawing.Size(448, 409);
-            this.dgvTable.TabIndex = 2;
-            // 
-            // colWordEn
-            // 
-            this.colWordEn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colWordEn.DataPropertyName = "WordEn";
-            this.colWordEn.HeaderText = "Слово";
-            this.colWordEn.Name = "colWordEn";
-            this.colWordEn.ReadOnly = true;
-            // 
-            // colWordRu
-            // 
-            this.colWordRu.DataPropertyName = "WordRu";
-            this.colWordRu.HeaderText = "Перевод";
-            this.colWordRu.Name = "colWordRu";
-            this.colWordRu.ReadOnly = true;
-            // 
-            // colType
-            // 
-            this.colType.DataPropertyName = "Type";
-            this.colType.HeaderText = "Тип";
-            this.colType.Name = "colType";
-            this.colType.ReadOnly = true;
-            // 
-            // Delete
-            // 
-            this.Delete.Location = new System.Drawing.Point(764, 54);
-            this.Delete.Name = "Delete";
-            this.Delete.Size = new System.Drawing.Size(75, 23);
-            this.Delete.TabIndex = 1;
-            this.Delete.Text = "Удалить";
-            this.Delete.UseVisualStyleBackColor = true;
-            // 
-            // Add
-            // 
-            this.Add.Location = new System.Drawing.Point(602, 54);
-            this.Add.Name = "Add";
-            this.Add.Size = new System.Drawing.Size(75, 23);
-            this.Add.TabIndex = 0;
-            this.Add.Text = "Добавить";
-            this.Add.UseVisualStyleBackColor = true;
-            this.Add.Click += new System.EventHandler(this.Add_Click);
             // 
             // tpExam
             // 
@@ -237,7 +153,7 @@
             this.tpExam.Location = new System.Drawing.Point(4, 22);
             this.tpExam.Name = "tpExam";
             this.tpExam.Padding = new System.Windows.Forms.Padding(3);
-            this.tpExam.Size = new System.Drawing.Size(922, 436);
+            this.tpExam.Size = new System.Drawing.Size(837, 436);
             this.tpExam.TabIndex = 1;
             this.tpExam.Text = "Проверка знаний";
             // 
@@ -378,13 +294,78 @@
             this.textBox1.Size = new System.Drawing.Size(75, 20);
             this.textBox1.TabIndex = 2;
             // 
+            // tbDic
+            // 
+            this.tbDic.BackColor = System.Drawing.SystemColors.Control;
+            this.tbDic.Controls.Add(this.Edit);
+            this.tbDic.Controls.Add(this.dgvTable);
+            this.tbDic.Controls.Add(this.Delete);
+            this.tbDic.Controls.Add(this.Add);
+            this.tbDic.Location = new System.Drawing.Point(4, 22);
+            this.tbDic.Name = "tbDic";
+            this.tbDic.Padding = new System.Windows.Forms.Padding(3);
+            this.tbDic.Size = new System.Drawing.Size(837, 436);
+            this.tbDic.TabIndex = 0;
+            this.tbDic.Text = "Словарь";
+            // 
+            // Edit
+            // 
+            this.Edit.Location = new System.Drawing.Point(582, 29);
+            this.Edit.Name = "Edit";
+            this.Edit.Size = new System.Drawing.Size(75, 23);
+            this.Edit.TabIndex = 3;
+            this.Edit.Text = "Изменить";
+            this.Edit.UseVisualStyleBackColor = true;
+            this.Edit.Click += new System.EventHandler(this.Edit_Click);
+            // 
+            // dgvTable
+            // 
+            this.dgvTable.AllowUserToAddRows = false;
+            this.dgvTable.AllowUserToDeleteRows = false;
+            this.dgvTable.AllowUserToResizeRows = false;
+            this.dgvTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvTable.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dgvTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colWordEn,
+            this.colWordRu,
+            this.qwe});
+            this.dgvTable.Location = new System.Drawing.Point(8, 6);
+            this.dgvTable.MultiSelect = false;
+            this.dgvTable.Name = "dgvTable";
+            this.dgvTable.ReadOnly = true;
+            this.dgvTable.RowHeadersVisible = false;
+            this.dgvTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvTable.Size = new System.Drawing.Size(448, 409);
+            this.dgvTable.TabIndex = 2;
+            // 
+            // Delete
+            // 
+            this.Delete.Location = new System.Drawing.Point(708, 29);
+            this.Delete.Name = "Delete";
+            this.Delete.Size = new System.Drawing.Size(75, 23);
+            this.Delete.TabIndex = 1;
+            this.Delete.Text = "Удалить";
+            this.Delete.UseVisualStyleBackColor = true;
+            this.Delete.Click += new System.EventHandler(this.Delete_Click);
+            // 
+            // Add
+            // 
+            this.Add.Location = new System.Drawing.Point(501, 29);
+            this.Add.Name = "Add";
+            this.Add.Size = new System.Drawing.Size(75, 23);
+            this.Add.TabIndex = 0;
+            this.Add.Text = "Добавить";
+            this.Add.UseVisualStyleBackColor = true;
+            this.Add.Click += new System.EventHandler(this.Add_Click);
+            // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tssLabel});
             this.statusStrip1.Location = new System.Drawing.Point(0, 464);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(930, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(845, 22);
             this.statusStrip1.TabIndex = 0;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -398,11 +379,33 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // colWordEn
+            // 
+            this.colWordEn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colWordEn.DataPropertyName = "WordEn";
+            this.colWordEn.HeaderText = "Слово";
+            this.colWordEn.Name = "colWordEn";
+            this.colWordEn.ReadOnly = true;
+            // 
+            // colWordRu
+            // 
+            this.colWordRu.DataPropertyName = "WordRu";
+            this.colWordRu.HeaderText = "Перевод";
+            this.colWordRu.Name = "colWordRu";
+            this.colWordRu.ReadOnly = true;
+            // 
+            // qwe
+            // 
+            this.qwe.DataPropertyName = "TypeString";
+            this.qwe.HeaderText = "Тип";
+            this.qwe.Name = "qwe";
+            this.qwe.ReadOnly = true;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(930, 486);
+            this.ClientSize = new System.Drawing.Size(845, 486);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.tControl);
             this.Controls.Add(this.MainMenu);
@@ -415,14 +418,14 @@
             this.MainMenu.ResumeLayout(false);
             this.MainMenu.PerformLayout();
             this.tControl.ResumeLayout(false);
-            this.tbDic.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTable)).EndInit();
             this.tpExam.ResumeLayout(false);
             this.tpExam.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.tbDic.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTable)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -448,9 +451,6 @@
         private System.Windows.Forms.ToolStripMenuItem выходToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem настройкаToolStripMenuItem;
         private System.Windows.Forms.ToolStripStatusLabel tssLabel;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colWordEn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colWordRu;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colType;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Timer timer1;
@@ -467,6 +467,9 @@
         private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colWordEn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colWordRu;
+        private System.Windows.Forms.DataGridViewTextBoxColumn qwe;
     }
 }
 

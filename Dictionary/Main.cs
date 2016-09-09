@@ -16,12 +16,12 @@ namespace Dictionary
     {
         Dictionary _dictionary = new Dictionary();  // Доступ к коллекции
         Data data = null;                           // Доступ к записи
-
-
+        
 
         public Main()
         {
             InitializeComponent();
+            dgvTable.AutoGenerateColumns = false;   // Отключение автоматического заполнения таблицы
             rbSelect.Checked = true;
         }
 
@@ -67,7 +67,6 @@ namespace Dictionary
                 _dictionary = Dictionary.Load();
                 if (_dictionary.DictionaryList.Count > 0)
                 {
-                    tssLabel.Text = "Коллекция из " + _dictionary.DictionaryList.Count.ToString() + " элементов";
                     RefreshTable();
                 }
             }
@@ -109,6 +108,7 @@ namespace Dictionary
 
             //if (selected != null)
             //    SelectRecord(dgvTable, selected);
+            tssLabel.Text = "Коллекция из " + _dictionary.DictionaryList.Count.ToString() + " элементов";
         }
 
 
@@ -380,9 +380,20 @@ namespace Dictionary
             return false;
         }
 
-
-
-
+        private void Delete_Click(object sender, EventArgs e)
+        {
+            Data data = GetSelectedRecord();
+            DialogResult dialog = MessageBox.Show("Вы хотите удалить запись \"" + data.WordEn + "\" ?",
+                                      "Удаление записи", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialog == DialogResult.Yes)
+            {
+                _dictionary.Remove(data);
+                dgvTable.ClearSelection();
+                _dictionary.Save();
+                
+                RefreshTable();
+            }
+        }
     }
 
 

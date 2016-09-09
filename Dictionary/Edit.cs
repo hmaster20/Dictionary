@@ -29,7 +29,6 @@ namespace Dictionary
             InitializeComponent();
 
             data = _data;
-
             tbWordEn.Text = _data.WordEn;
             tbWordRu.Text = _data.WordRu;
 
@@ -39,19 +38,16 @@ namespace Dictionary
                 cbType.Items.Add(item);
             }
 
-
-            //switch (record.Type)
-            //{
-            //    case VideoType.Movie: cbType.SelectedIndex = 0; break;
-            //    case VideoType.Cartoon: cbType.SelectedIndex = 1; break;
-            //    case VideoType.Series: cbType.SelectedIndex = 2; break;
-            //}
-            //switch (record.Existence)
-            //{
-            //    case Existence.Have: cbExistence.SelectedIndex = 0; break;
-            //    case Existence.WillHave: cbExistence.SelectedIndex = 1; break;
-            //    case Existence.Had: cbExistence.SelectedIndex = 2; break;
-            //}
+            switch (_data.Type)
+            {
+                case TypeWord.verb: cbType.SelectedIndex = 0; break;
+                case TypeWord.noun: cbType.SelectedIndex = 1; break;
+                case TypeWord.pronoun: cbType.SelectedIndex = 2; break;
+                case TypeWord.questions: cbType.SelectedIndex = 3; break;
+                case TypeWord.participle: cbType.SelectedIndex = 4; break;
+                case TypeWord.prepositions: cbType.SelectedIndex = 5; break;
+                case TypeWord.Unknown: cbType.SelectedIndex = 6; break;
+            }
         }
 
 

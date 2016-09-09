@@ -15,13 +15,13 @@ namespace Dictionary
             set { _typeWord = value; }
         }
 
-        private string TypeString                   //  используется для вывода значения в таблицу
+        public string TypeString                   //  используется для вывода значения в таблицу
         {
             get { return TypeToString(Type); }
             set { Type = StringToType(value); }
         }
 
-        private static string TypeToString(TypeWord typeWord)
+        public static string TypeToString(TypeWord typeWord)
         {
             switch (typeWord)
             {
@@ -36,7 +36,7 @@ namespace Dictionary
             }
         }
 
-        private static TypeWord StringToType(string type)
+        public static TypeWord StringToType(string type)
         {
             switch (type)
             {
