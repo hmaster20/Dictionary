@@ -89,5 +89,20 @@ lot
 pretty
 beautiful
 efficient
+behavior 
+sequential 
+described 
+performance 
+pre-allocation
+possible 
+quantifiable 
+benefits
+considers 
+delivers 
+consequently
+accompanied 
+obtain 
+measurements
+
 
 
