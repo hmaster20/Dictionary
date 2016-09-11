@@ -55,22 +55,6 @@ namespace Dictionary
         {
             TypeWord type;
 
-            //VideoType type;
-
-
-            //switch (cbType.SelectedIndex)
-            //{
-            //    case 0: type = TypeWord.noun; break;
-            //    case 1: type = VideoType.Cartoon; break;
-            //    case 2: type = VideoType.Series; break;
-            //    default: MessageBox.Show("Не выбран тип"); return;
-            //}
-
-            //foreach (var item in Enum.GetValues(typeof(TypeWordRus)))
-            //{
-            //    cbType.Items.Add(item);
-            //}
-
             //type = (int)(TypeWord)Enum.Parse(typeof(TypeWord), cbType.SelectedIndex);
             type = (TypeWord)cbType.SelectedIndex;
 
