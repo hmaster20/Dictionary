@@ -56,14 +56,14 @@
             this.tbDic = new System.Windows.Forms.TabPage();
             this.Edit = new System.Windows.Forms.Button();
             this.dgvTable = new System.Windows.Forms.DataGridView();
+            this.colWordEn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colWordRu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qwe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Delete = new System.Windows.Forms.Button();
             this.Add = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tssLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.colWordEn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colWordRu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qwe = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.timerQuiz = new System.Windows.Forms.Timer(this.components);
             this.MainMenu.SuspendLayout();
             this.tControl.SuspendLayout();
             this.tpExam.SuspendLayout();
@@ -339,6 +339,28 @@
             this.dgvTable.Size = new System.Drawing.Size(448, 409);
             this.dgvTable.TabIndex = 2;
             // 
+            // colWordEn
+            // 
+            this.colWordEn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colWordEn.DataPropertyName = "WordEn";
+            this.colWordEn.HeaderText = "Слово";
+            this.colWordEn.Name = "colWordEn";
+            this.colWordEn.ReadOnly = true;
+            // 
+            // colWordRu
+            // 
+            this.colWordRu.DataPropertyName = "WordRu";
+            this.colWordRu.HeaderText = "Перевод";
+            this.colWordRu.Name = "colWordRu";
+            this.colWordRu.ReadOnly = true;
+            // 
+            // qwe
+            // 
+            this.qwe.DataPropertyName = "TypeString";
+            this.qwe.HeaderText = "Тип";
+            this.qwe.Name = "qwe";
+            this.qwe.ReadOnly = true;
+            // 
             // Delete
             // 
             this.Delete.Location = new System.Drawing.Point(708, 29);
@@ -374,32 +396,10 @@
             this.tssLabel.Name = "tssLabel";
             this.tssLabel.Size = new System.Drawing.Size(0, 17);
             // 
-            // timer1
+            // timerQuiz
             // 
-            this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // colWordEn
-            // 
-            this.colWordEn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colWordEn.DataPropertyName = "WordEn";
-            this.colWordEn.HeaderText = "Слово";
-            this.colWordEn.Name = "colWordEn";
-            this.colWordEn.ReadOnly = true;
-            // 
-            // colWordRu
-            // 
-            this.colWordRu.DataPropertyName = "WordRu";
-            this.colWordRu.HeaderText = "Перевод";
-            this.colWordRu.Name = "colWordRu";
-            this.colWordRu.ReadOnly = true;
-            // 
-            // qwe
-            // 
-            this.qwe.DataPropertyName = "TypeString";
-            this.qwe.HeaderText = "Тип";
-            this.qwe.Name = "qwe";
-            this.qwe.ReadOnly = true;
+            this.timerQuiz.Interval = 1000;
+            this.timerQuiz.Tick += new System.EventHandler(this.timer_Tick);
             // 
             // Main
             // 
@@ -453,7 +453,7 @@
         private System.Windows.Forms.ToolStripStatusLabel tssLabel;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer timerQuiz;
         private System.Windows.Forms.Label timeLabel;
         private System.Windows.Forms.Button startButton;
         private System.Windows.Forms.GroupBox groupBox1;
