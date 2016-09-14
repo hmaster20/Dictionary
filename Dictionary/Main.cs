@@ -7,7 +7,6 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Dictionary
@@ -15,8 +14,8 @@ namespace Dictionary
     public partial class Main : Form
     {
         Dictionary _dictionary = new Dictionary();  // Доступ к коллекции
-        //Data data = null;                           // Доступ к записи
-        
+                                                    //Data data = null;                         // Доступ к записи
+
         public Main()
         {
             InitializeComponent();
@@ -55,7 +54,43 @@ namespace Dictionary
                 _dictionary.Remove(data);
                 dgvTable.ClearSelection();
                 _dictionary.Save();
+                RefreshTable();
+            }
+        }
 
+        private void import_Click(object sender, EventArgs e)
+        {
+            //// Read the file and display it line by line.
+            //System.IO.StreamReader file = new System.IO.StreamReader(@"c:\test.txt");
+            //while ((line = file.ReadLine()) != null)
+            //{
+            //    System.Console.WriteLine(line);
+            //    counter++;
+            //}
+            //file.Close();
+            //System.Console.WriteLine("There were {0} lines.", counter);
+
+            OpenFileDialog FileDialog = new OpenFileDialog();
+            //openFileDialog1.InitialDirectory = "c:\\";
+            FileDialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+            FileDialog.FilterIndex = 2;
+            FileDialog.RestoreDirectory = true;
+
+            if (FileDialog.ShowDialog() == DialogResult.OK)
+            {
+                var lines = File.ReadAllLines(FileDialog.FileName);
+                foreach (var line in lines)
+                {
+                    if (line.Length > 1)
+                    {
+                        Data data = new Data();
+                        data.WordEn = line;
+                        data.WordRu = "";
+                        data.Type = TypeWord.Unknown;
+                        _dictionary.Add(data);
+                    }
+                }
+                _dictionary.Save();
                 RefreshTable();
             }
         }
@@ -85,8 +120,6 @@ namespace Dictionary
                 }
             }
         }
-
-
 
         private void RefreshTable()    // Обновление таблицы путем фильтрации элементов по полю Path
         {
@@ -122,7 +155,7 @@ namespace Dictionary
 
             //if (selected != null)
             //    SelectRecord(dgvTable, selected);
-            tssLabel.Text = "Коллекция из " + _dictionary.DictionaryList.Count.ToString() + " элементов";
+            tssLabel.Text = "Словарь содержит " + _dictionary.DictionaryList.Count.ToString() + " элементов";
         }
 
 
@@ -156,9 +189,19 @@ namespace Dictionary
         Random randomizer = new Random();
 
 
+        private void startButton_Click(object sender, EventArgs e)
+        {
+            StartTheQuiz();
+            StartTheExam();
+            startButton.Enabled = false;
+
+            if (rbSelect.Checked) { label1.Text = "Гадаем по словам"; }
+            if (rbInsert.Checked) { label1.Text = "Пишем словечки"; }
+        }
+
+
         /// <summary>
-        /// Start the quiz by filling in all of the problem 
-        /// values and starting the timer. 
+        /// Start the quiz by filling in all of the problem values and starting the timer. 
         /// </summary>
         public void StartTheQuiz()
         {
@@ -172,6 +215,73 @@ namespace Dictionary
             timerQuiz.Start();
         }
 
+        private void StartTheExam()
+        {
+            if (_dictionary.DictionaryList.Count > 3)
+            {
+                List<Data> LData = new List<Data>();
+                while (LData.Count < 3)
+                {
+                    Data data = _dictionary.DictionaryList[randomizer.Next(_dictionary.DictionaryList.Count)];
+                    if (LData.Count == 0)
+                        LData.Add(data);
+                    else
+                        if (!LData.Exists(v => v.WordEn == data.WordEn)) LData.Add(data);
+                }
+
+                int i = 0;
+                label2.Text = LData[i].WordEn;
+                word = LData[i].WordRu;
+
+                var checkedRadio = new[] { groupBox2 }
+               .SelectMany(g => g.Controls.OfType<RadioButton>());
+                foreach (var c in checkedRadio)
+                {
+                    c.Text = LData[i].WordRu;    //MessageBox.Show(c.Name);
+                    i++;
+                }
+                
+                // var checkedRadio = new[] { groupBox2 }
+                //.SelectMany(g => g.Controls.OfType<RadioButton>()
+                //                         .Where(r => r.Checked));               
+                // // Print name
+                // foreach (var c in checkedRadio)
+                // { 
+                //     System.Diagnostics.Debug.Print(c.Name);
+                //     MessageBox.Show(c.Name);
+                // }
+
+                //RadioButton rb = new RadioButton();
+                //rb.Location = new Point(200, 300 + 1 * 20);
+                //groupBox2.Controls.Add(rb);
+                
+
+                // var buttons = this.Controls.OfType<RadioButton>()
+                //           .FirstOrDefault(n => n.Checked);
+
+
+                //List<RadioButton> buttons = groupBox2.OfType<RadioButton>().ToList();
+                //RadioButton rbTarget = radioButtons
+                //      .Where(r => r.GroupName == "GroupName" && r.IsChecked)
+                //      .Single();
+
+                // List<RadioButton> buttonss = (List<RadioButton>)new[] { groupBox2 }
+                //.SelectMany(g => g.Controls.OfType<RadioButton>());
+                // for (int i = 0; i < buttonss.Count; i++)
+                // {
+                //     buttonss[i].Text = "123_" +i;
+                //     MessageBox.Show(buttonss[i].Name);
+                // }
+            }
+            else
+            {
+                MessageBox.Show("Добавьте больше слов в словарь.");
+            }
+        }
+
+
+
+
         private void timer_Tick(object sender, EventArgs e) // ежесекундно идет проверка и можно подсчитать среднее время ответа.
         {
             if (timeLeft > 0 && timeLeft < 6)
@@ -182,13 +292,10 @@ namespace Dictionary
             if (CheckTheAnswereD())
             {
                 timerQuiz.Stop();
-                DialogResult result = MessageBox.Show("Ты крут!",
-                                "Congratulations!");
-
+                DialogResult result = MessageBox.Show("Ты крут!", "Congratulations!");
                 if (result == DialogResult.OK)
                 {
-                    MessageBox.Show("Test");
-                    //this.Close();
+                    MessageBox.Show("Test");   //this.Close();
                 }
                 startButton.Enabled = true;
                 timeLabel.BackColor = default(Color);
@@ -200,9 +307,7 @@ namespace Dictionary
                     c.Text = "";
                 }
                 label2.Text = "";
-             
             }
-
 
 
 
@@ -212,9 +317,7 @@ namespace Dictionary
                 MessageBox.Show("You got all the answers right!",
                                 "Congratulations!");
                 startButton.Enabled = true;
-                timeLabel.BackColor = default(Color);    
-
-
+                timeLabel.BackColor = default(Color);
             }
             if (timeLeft > 0)
             {
@@ -248,21 +351,7 @@ namespace Dictionary
 
 
 
-
-
-        private void startButton_Click(object sender, EventArgs e)
-        {
-            StartTheQuiz();
-            StartTheExam();
-            startButton.Enabled = false;
-
-            if (rbSelect.Checked) { label1.Text = "Гадаем по словам"; }
-            if (rbInsert.Checked) { label1.Text = "Пишем словечки"; }
-        }
-
-
-
-        private void answer_Enter(object sender, EventArgs e)
+       private void answer_Enter(object sender, EventArgs e)
         {
             // Select the whole answer in the NumericUpDown control.
             NumericUpDown answerBox = sender as NumericUpDown;
@@ -271,98 +360,6 @@ namespace Dictionary
             {
                 int lengthOfAnswer = answerBox.Value.ToString().Length;
                 answerBox.Select(0, lengthOfAnswer);
-            }
-        }
-
-
-
-        private void StartTheExam()
-        {
-            if (_dictionary.DictionaryList.Count > 3)
-            {
-                List<Data> LData = new List<Data>();
-                while (LData.Count < 3)
-                {
-                    Data data = _dictionary.DictionaryList[randomizer.Next(_dictionary.DictionaryList.Count)];
-                    if (LData.Count == 0)
-                    {
-                        LData.Add(data);
-                    }
-                    else
-                    {
-                        if (!LData.Exists(v => v.WordEn == data.WordEn))
-                            LData.Add(data);
-                    }
-                }
-
-                //for (int i = 0; i < LData.Count; i++)
-                //{
-                //    //radioButton[i].Text =
-                //}
-                //radioButton1.Text = 
-                //groupBox2.
-                //radioButton1
-
-
-                int i = 0;
-                label2.Text = LData[i].WordEn;
-                word = LData[i].WordRu;
-
-                var checkedRadio = new[] { groupBox2 }
-               .SelectMany(g => g.Controls.OfType<RadioButton>());
-                foreach (var c in checkedRadio)
-                {
-                    c.Text = LData[i].WordRu;
-                    //MessageBox.Show(c.Name);
-                    i++;
-                }
-
-
-
-
-                // var checkedRadio = new[] { groupBox2 }
-                //.SelectMany(g => g.Controls.OfType<RadioButton>()
-                //                         .Where(r => r.Checked));               
-                // // Print name
-                // foreach (var c in checkedRadio)
-                // { 
-                //     System.Diagnostics.Debug.Print(c.Name);
-                //     MessageBox.Show(c.Name);
-                // }
-
-                //RadioButton rb = new RadioButton();
-
-                //rb.Location = new Point(200, 300 + 1 * 20);
-
-                //groupBox2.Controls.Add(rb);
-
-
-
-
-
-
-                // var buttons = this.Controls.OfType<RadioButton>()
-                //           .FirstOrDefault(n => n.Checked);
-
-
-                //List<RadioButton> buttons = groupBox2.OfType<RadioButton>().ToList();
-                //RadioButton rbTarget = radioButtons
-                //      .Where(r => r.GroupName == "GroupName" && r.IsChecked)
-                //      .Single();
-
-                // List<RadioButton> buttonss = (List<RadioButton>)new[] { groupBox2 }
-                //.SelectMany(g => g.Controls.OfType<RadioButton>());
-                // for (int i = 0; i < buttonss.Count; i++)
-                // {
-                //     buttonss[i].Text = "123_" +i;
-                //     MessageBox.Show(buttonss[i].Name);
-                // }
-
-
-            }
-            else
-            {
-                MessageBox.Show("Добавьте больше слов в словарь.");
             }
         }
 
@@ -381,8 +378,6 @@ namespace Dictionary
             }
             return false;
         }
-
-
 
 
 
