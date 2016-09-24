@@ -63,6 +63,11 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.tbDic = new System.Windows.Forms.TabPage();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.tbFind = new System.Windows.Forms.TextBox();
+            this.btnFind = new System.Windows.Forms.Button();
+            this.cbTypeFind = new System.Windows.Forms.ComboBox();
             this.Edit = new System.Windows.Forms.Button();
             this.dgvTable = new System.Windows.Forms.DataGridView();
             this.colWordEn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -71,7 +76,8 @@
             this.Delete = new System.Windows.Forms.Button();
             this.Add = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.tssLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.GLobalStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.FindStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.timerQuiz = new System.Windows.Forms.Timer(this.components);
             this.MainMenu.SuspendLayout();
             this.tControl.SuspendLayout();
@@ -391,6 +397,11 @@
             // tbDic
             // 
             this.tbDic.BackColor = System.Drawing.SystemColors.Control;
+            this.tbDic.Controls.Add(this.label6);
+            this.tbDic.Controls.Add(this.label7);
+            this.tbDic.Controls.Add(this.tbFind);
+            this.tbDic.Controls.Add(this.btnFind);
+            this.tbDic.Controls.Add(this.cbTypeFind);
             this.tbDic.Controls.Add(this.Edit);
             this.tbDic.Controls.Add(this.dgvTable);
             this.tbDic.Controls.Add(this.Delete);
@@ -401,6 +412,56 @@
             this.tbDic.Size = new System.Drawing.Size(837, 436);
             this.tbDic.TabIndex = 0;
             this.tbDic.Text = "Словарь";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(480, 240);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(94, 13);
+            this.label6.TabIndex = 21;
+            this.label6.Text = "Критерий поиска";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(481, 192);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(82, 13);
+            this.label7.TabIndex = 22;
+            this.label7.Text = "Строка поиска";
+            // 
+            // tbFind
+            // 
+            this.tbFind.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbFind.Location = new System.Drawing.Point(480, 208);
+            this.tbFind.Name = "tbFind";
+            this.tbFind.Size = new System.Drawing.Size(328, 20);
+            this.tbFind.TabIndex = 20;
+            // 
+            // btnFind
+            // 
+            this.btnFind.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnFind.Location = new System.Drawing.Point(726, 256);
+            this.btnFind.Name = "btnFind";
+            this.btnFind.Size = new System.Drawing.Size(82, 23);
+            this.btnFind.TabIndex = 19;
+            this.btnFind.Text = "Поиск";
+            this.btnFind.UseVisualStyleBackColor = true;
+            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
+            // 
+            // cbTypeFind
+            // 
+            this.cbTypeFind.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTypeFind.FormattingEnabled = true;
+            this.cbTypeFind.Items.AddRange(new object[] {
+            "Слово",
+            "Перевод"});
+            this.cbTypeFind.Location = new System.Drawing.Point(480, 256);
+            this.cbTypeFind.Name = "cbTypeFind";
+            this.cbTypeFind.Size = new System.Drawing.Size(138, 21);
+            this.cbTypeFind.TabIndex = 18;
             // 
             // Edit
             // 
@@ -478,17 +539,24 @@
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tssLabel});
+            this.GLobalStatusLabel,
+            this.FindStatusLabel});
             this.statusStrip1.Location = new System.Drawing.Point(0, 464);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(845, 22);
             this.statusStrip1.TabIndex = 0;
-            this.statusStrip1.Text = "statusStrip1";
             // 
-            // tssLabel
+            // GLobalStatusLabel
             // 
-            this.tssLabel.Name = "tssLabel";
-            this.tssLabel.Size = new System.Drawing.Size(0, 17);
+            this.GLobalStatusLabel.Name = "GLobalStatusLabel";
+            this.GLobalStatusLabel.Size = new System.Drawing.Size(0, 17);
+            // 
+            // FindStatusLabel
+            // 
+            this.FindStatusLabel.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Left;
+            this.FindStatusLabel.BorderStyle = System.Windows.Forms.Border3DStyle.Etched;
+            this.FindStatusLabel.Name = "FindStatusLabel";
+            this.FindStatusLabel.Size = new System.Drawing.Size(4, 17);
             // 
             // timerQuiz
             // 
@@ -520,6 +588,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tbDic.ResumeLayout(false);
+            this.tbDic.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTable)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
@@ -545,7 +614,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem MenuExit;
         private System.Windows.Forms.ToolStripMenuItem настройкаToolStripMenuItem;
-        private System.Windows.Forms.ToolStripStatusLabel tssLabel;
+        private System.Windows.Forms.ToolStripStatusLabel GLobalStatusLabel;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Timer timerQuiz;
@@ -574,6 +643,12 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem MenuImport;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox tbFind;
+        private System.Windows.Forms.Button btnFind;
+        private System.Windows.Forms.ComboBox cbTypeFind;
+        private System.Windows.Forms.ToolStripStatusLabel FindStatusLabel;
     }
 }
 
