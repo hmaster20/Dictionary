@@ -38,6 +38,8 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.MenuExit = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuOptions = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuHelp = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.tControl = new System.Windows.Forms.TabControl();
             this.tpExam = new System.Windows.Forms.TabPage();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
@@ -63,12 +65,7 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.tbDic = new System.Windows.Forms.TabPage();
-<<<<<<< HEAD
             this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-=======
-            this.label3 = new System.Windows.Forms.Label();
->>>>>>> master
             this.tbFind = new System.Windows.Forms.TextBox();
             this.btnFind = new System.Windows.Forms.Button();
             this.cbTypeFind = new System.Windows.Forms.ComboBox();
@@ -82,12 +79,7 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.GLobalStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.FindStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-<<<<<<< HEAD
             this.timerQuiz = new System.Windows.Forms.Timer(this.components);
-            this.MenuHelp = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuAbout = new System.Windows.Forms.ToolStripMenuItem();
-=======
->>>>>>> master
             this.MainMenu.SuspendLayout();
             this.tControl.SuspendLayout();
             this.tpExam.SuspendLayout();
@@ -166,6 +158,20 @@
             this.MenuOptions.Size = new System.Drawing.Size(78, 20);
             this.MenuOptions.Text = "Настройка";
             // 
+            // MenuHelp
+            // 
+            this.MenuHelp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MenuAbout});
+            this.MenuHelp.Name = "MenuHelp";
+            this.MenuHelp.Size = new System.Drawing.Size(65, 20);
+            this.MenuHelp.Text = "Справка";
+            // 
+            // MenuAbout
+            // 
+            this.MenuAbout.Name = "MenuAbout";
+            this.MenuAbout.Size = new System.Drawing.Size(149, 22);
+            this.MenuAbout.Text = "О программе";
+            // 
             // tControl
             // 
             this.tControl.Controls.Add(this.tpExam);
@@ -187,7 +193,6 @@
             this.tpExam.Controls.Add(this.numericUpDown1);
             this.tpExam.Controls.Add(this.label5);
             this.tpExam.Controls.Add(this.label4);
-            this.tpExam.Controls.Add(this.label3);
             this.tpExam.Controls.Add(this.label1);
             this.tpExam.Controls.Add(this.timeLabelName);
             this.tpExam.Controls.Add(this.groupBox2);
@@ -261,11 +266,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(599, 165);
+            this.label3.Location = new System.Drawing.Point(498, 167);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(68, 13);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Кол-во слов";
+            this.label3.Size = new System.Drawing.Size(82, 13);
+            this.label3.TabIndex = 21;
+            this.label3.Text = "Строка поиска";
             // 
             // label1
             // 
@@ -408,12 +413,8 @@
             // tbDic
             // 
             this.tbDic.BackColor = System.Drawing.SystemColors.Control;
-<<<<<<< HEAD
             this.tbDic.Controls.Add(this.label6);
-            this.tbDic.Controls.Add(this.label7);
-=======
             this.tbDic.Controls.Add(this.label3);
->>>>>>> master
             this.tbDic.Controls.Add(this.tbFind);
             this.tbDic.Controls.Add(this.btnFind);
             this.tbDic.Controls.Add(this.cbTypeFind);
@@ -428,58 +429,28 @@
             this.tbDic.TabIndex = 0;
             this.tbDic.Text = "Словарь";
             // 
-<<<<<<< HEAD
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(480, 240);
+            this.label6.Location = new System.Drawing.Point(498, 215);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(94, 13);
             this.label6.TabIndex = 21;
             this.label6.Text = "Критерий поиска";
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(481, 192);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(82, 13);
-            this.label7.TabIndex = 22;
-            this.label7.Text = "Строка поиска";
-=======
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(498, 167);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(82, 13);
-            this.label3.TabIndex = 21;
-            this.label3.Text = "Строка поиска";
->>>>>>> master
-            // 
             // tbFind
             // 
             this.tbFind.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-<<<<<<< HEAD
-            this.tbFind.Location = new System.Drawing.Point(480, 208);
-            this.tbFind.Name = "tbFind";
-            this.tbFind.Size = new System.Drawing.Size(328, 20);
-=======
             this.tbFind.Location = new System.Drawing.Point(501, 183);
             this.tbFind.Name = "tbFind";
             this.tbFind.Size = new System.Drawing.Size(304, 20);
->>>>>>> master
             this.tbFind.TabIndex = 20;
             // 
             // btnFind
             // 
             this.btnFind.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-<<<<<<< HEAD
-            this.btnFind.Location = new System.Drawing.Point(726, 256);
-=======
             this.btnFind.Location = new System.Drawing.Point(723, 229);
->>>>>>> master
             this.btnFind.Name = "btnFind";
             this.btnFind.Size = new System.Drawing.Size(82, 23);
             this.btnFind.TabIndex = 19;
@@ -494,11 +465,7 @@
             this.cbTypeFind.Items.AddRange(new object[] {
             "Слово",
             "Перевод"});
-<<<<<<< HEAD
-            this.cbTypeFind.Location = new System.Drawing.Point(480, 256);
-=======
             this.cbTypeFind.Location = new System.Drawing.Point(501, 231);
->>>>>>> master
             this.cbTypeFind.Name = "cbTypeFind";
             this.cbTypeFind.Size = new System.Drawing.Size(138, 21);
             this.cbTypeFind.TabIndex = 18;
@@ -590,15 +557,9 @@
             // 
             this.GLobalStatusLabel.Name = "GLobalStatusLabel";
             this.GLobalStatusLabel.Size = new System.Drawing.Size(0, 17);
-<<<<<<< HEAD
             // 
             // FindStatusLabel
             // 
-=======
-            // 
-            // FindStatusLabel
-            // 
->>>>>>> master
             this.FindStatusLabel.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Left;
             this.FindStatusLabel.BorderStyle = System.Windows.Forms.Border3DStyle.Etched;
             this.FindStatusLabel.Name = "FindStatusLabel";
@@ -608,20 +569,6 @@
             // 
             this.timerQuiz.Interval = 1000;
             this.timerQuiz.Tick += new System.EventHandler(this.timer_Tick);
-            // 
-            // MenuHelp
-            // 
-            this.MenuHelp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MenuAbout});
-            this.MenuHelp.Name = "MenuHelp";
-            this.MenuHelp.Size = new System.Drawing.Size(65, 20);
-            this.MenuHelp.Text = "Справка";
-            // 
-            // MenuAbout
-            // 
-            this.MenuAbout.Name = "MenuAbout";
-            this.MenuAbout.Size = new System.Drawing.Size(152, 22);
-            this.MenuAbout.Text = "О программе";
             // 
             // Main
             // 
@@ -673,11 +620,8 @@
         private System.Windows.Forms.ToolStripMenuItem MenuMerge;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem MenuExit;
-<<<<<<< HEAD
         private System.Windows.Forms.ToolStripMenuItem MenuOptions;
-=======
         private System.Windows.Forms.ToolStripMenuItem настройкаToolStripMenuItem;
->>>>>>> master
         private System.Windows.Forms.ToolStripStatusLabel GLobalStatusLabel;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
@@ -708,7 +652,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem MenuImport;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox tbFind;
         private System.Windows.Forms.Button btnFind;
         private System.Windows.Forms.ComboBox cbTypeFind;
