@@ -4,6 +4,7 @@ consists
 mapping
 regarding
 statements
+statement
 causing
 responsible
 ambiguous
@@ -23,7 +24,6 @@ received
 invitation 
 hire
 increase
-statements
 swiping
 facilitates
 regard
@@ -103,6 +103,13 @@ consequently
 accompanied 
 obtain 
 measurements
-
-
-
+nested
+referred 
+inner
+means
+soon
+relations
+certain 
+recognizes
+clause
+badges

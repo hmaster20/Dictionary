@@ -4,7 +4,13 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+<<<<<<< HEAD
 using System.Text.RegularExpressions;
+=======
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading;
+>>>>>>> master
 using System.Windows.Forms;
 
 namespace Dictionary
@@ -367,8 +373,59 @@ namespace Dictionary
             return false;
         }
 
+        private void Delete_Click(object sender, EventArgs e)
+        {
+            Data data = GetSelectedRecord();
+            DialogResult dialog = MessageBox.Show("Вы хотите удалить запись \"" + data.WordEn + "\" ?",
+                                      "Удаление записи", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialog == DialogResult.Yes)
+            {
+                _dictionary.Remove(data);
+                dgvTable.ClearSelection();
+                _dictionary.Save();
+                
+                RefreshTable();
+            }
+        }
 
+        private void btnFind_Click(object sender, EventArgs e)
+        {
+            int switch_Find = cbTypeFind.SelectedIndex;
+            switch (switch_Find)
+            {
+                case 0: Find(0); break; // поиск по названию
+                case 1: Find(1); break; // поиск по году
+                default: MessageBox.Show("Укажите критерий поиска!"); break;
+            }
+        }
 
+        private void Find(int cell)
+        {
+            Regex regex = new Regex(tbFind.Text, RegexOptions.IgnoreCase);
+            int i = 0;
+
+            dgvTable.ClearSelection();
+            dgvTable.MultiSelect = true;    // Требуется для выбора всех строк
+            try
+            {
+                foreach (DataGridViewRow row in dgvTable.Rows)
+                {
+                    if (regex.IsMatch(row.Cells[cell].Value.ToString()))
+                    {
+                        i++;
+                        row.Selected = true;
+                        //break; //Требуется для выбора одно строки
+                    }
+                }
+                FindStatusLabel.Text = "Найдено "+ i +" элементов.";
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+        }
+
+<<<<<<< HEAD
         private void btnFind_Click(object sender, EventArgs e)
         {
             int switch_Find = cbTypeFind.SelectedIndex;
@@ -407,6 +464,8 @@ namespace Dictionary
             }
         }
 
+=======
+>>>>>>> master
         private void tControl_Click(object sender, EventArgs e)
         {
             FindStatusLabel.Text = "";

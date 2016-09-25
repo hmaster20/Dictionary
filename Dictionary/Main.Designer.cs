@@ -63,8 +63,12 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.tbDic = new System.Windows.Forms.TabPage();
+<<<<<<< HEAD
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+=======
+            this.label3 = new System.Windows.Forms.Label();
+>>>>>>> master
             this.tbFind = new System.Windows.Forms.TextBox();
             this.btnFind = new System.Windows.Forms.Button();
             this.cbTypeFind = new System.Windows.Forms.ComboBox();
@@ -78,9 +82,12 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.GLobalStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.FindStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+<<<<<<< HEAD
             this.timerQuiz = new System.Windows.Forms.Timer(this.components);
             this.MenuHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuAbout = new System.Windows.Forms.ToolStripMenuItem();
+=======
+>>>>>>> master
             this.MainMenu.SuspendLayout();
             this.tControl.SuspendLayout();
             this.tpExam.SuspendLayout();
@@ -169,6 +176,7 @@
             this.tControl.SelectedIndex = 0;
             this.tControl.Size = new System.Drawing.Size(845, 462);
             this.tControl.TabIndex = 1;
+            this.tControl.Click += new System.EventHandler(this.tControl_Click);
             // 
             // tpExam
             // 
@@ -400,8 +408,12 @@
             // tbDic
             // 
             this.tbDic.BackColor = System.Drawing.SystemColors.Control;
+<<<<<<< HEAD
             this.tbDic.Controls.Add(this.label6);
             this.tbDic.Controls.Add(this.label7);
+=======
+            this.tbDic.Controls.Add(this.label3);
+>>>>>>> master
             this.tbDic.Controls.Add(this.tbFind);
             this.tbDic.Controls.Add(this.btnFind);
             this.tbDic.Controls.Add(this.cbTypeFind);
@@ -416,6 +428,7 @@
             this.tbDic.TabIndex = 0;
             this.tbDic.Text = "Словарь";
             // 
+<<<<<<< HEAD
             // label6
             // 
             this.label6.AutoSize = true;
@@ -433,20 +446,40 @@
             this.label7.Size = new System.Drawing.Size(82, 13);
             this.label7.TabIndex = 22;
             this.label7.Text = "Строка поиска";
+=======
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(498, 167);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(82, 13);
+            this.label3.TabIndex = 21;
+            this.label3.Text = "Строка поиска";
+>>>>>>> master
             // 
             // tbFind
             // 
             this.tbFind.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+<<<<<<< HEAD
             this.tbFind.Location = new System.Drawing.Point(480, 208);
             this.tbFind.Name = "tbFind";
             this.tbFind.Size = new System.Drawing.Size(328, 20);
+=======
+            this.tbFind.Location = new System.Drawing.Point(501, 183);
+            this.tbFind.Name = "tbFind";
+            this.tbFind.Size = new System.Drawing.Size(304, 20);
+>>>>>>> master
             this.tbFind.TabIndex = 20;
             // 
             // btnFind
             // 
             this.btnFind.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+<<<<<<< HEAD
             this.btnFind.Location = new System.Drawing.Point(726, 256);
+=======
+            this.btnFind.Location = new System.Drawing.Point(723, 229);
+>>>>>>> master
             this.btnFind.Name = "btnFind";
             this.btnFind.Size = new System.Drawing.Size(82, 23);
             this.btnFind.TabIndex = 19;
@@ -461,7 +494,11 @@
             this.cbTypeFind.Items.AddRange(new object[] {
             "Слово",
             "Перевод"});
+<<<<<<< HEAD
             this.cbTypeFind.Location = new System.Drawing.Point(480, 256);
+=======
+            this.cbTypeFind.Location = new System.Drawing.Point(501, 231);
+>>>>>>> master
             this.cbTypeFind.Name = "cbTypeFind";
             this.cbTypeFind.Size = new System.Drawing.Size(138, 21);
             this.cbTypeFind.TabIndex = 18;
@@ -553,9 +590,15 @@
             // 
             this.GLobalStatusLabel.Name = "GLobalStatusLabel";
             this.GLobalStatusLabel.Size = new System.Drawing.Size(0, 17);
+<<<<<<< HEAD
             // 
             // FindStatusLabel
             // 
+=======
+            // 
+            // FindStatusLabel
+            // 
+>>>>>>> master
             this.FindStatusLabel.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Left;
             this.FindStatusLabel.BorderStyle = System.Windows.Forms.Border3DStyle.Etched;
             this.FindStatusLabel.Name = "FindStatusLabel";
@@ -630,7 +673,11 @@
         private System.Windows.Forms.ToolStripMenuItem MenuMerge;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem MenuExit;
+<<<<<<< HEAD
         private System.Windows.Forms.ToolStripMenuItem MenuOptions;
+=======
+        private System.Windows.Forms.ToolStripMenuItem настройкаToolStripMenuItem;
+>>>>>>> master
         private System.Windows.Forms.ToolStripStatusLabel GLobalStatusLabel;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
