@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Xml.Serialization;
 
 namespace Dictionary
@@ -11,11 +10,8 @@ namespace Dictionary
         public Dictionary() { DictionaryList = new List<Data>(); }
 
         public void Add(Data data) { DictionaryList.Add(data); }
-
         public void Save() { XmlSerializeHelper.SerializeAndSave(BaseName, this); }
-
         public void Remove(Data data) { DictionaryList.Remove(data); }
-
         public void Clear() { DictionaryList.Clear(); }
 
         public static Dictionary Load()

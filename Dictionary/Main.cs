@@ -1,21 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading;
 using System.Windows.Forms;
 
 namespace Dictionary
 {
     public partial class Main : Form
     {
-        Dictionary _dictionary = new Dictionary();  // Доступ к коллекции
-                                                    //Data data = null;                         // Доступ к записи
+        Dictionary _dictionary = new Dictionary();  // Доступ к коллекции   (Data data = null;  // Доступ к записи)
 
         public Main()
         {
@@ -24,25 +20,26 @@ namespace Dictionary
             rbSelect.Checked = true;
         }
 
+        private void Save()
+        {
+            _dictionary.Save();
+            RefreshTable();
+        }
+
         private void Add_Click(object sender, EventArgs e)
         {
             Edit form = new Edit();
             if (form.ShowDialog() == DialogResult.OK)
             {
                 _dictionary.Add(form.data);
-                _dictionary.Save();
-                RefreshTable();
+                Save();
             }
         }
 
         private void Edit_Click(object sender, EventArgs e)
         {
             Data data = GetSelectedRecord();
-            if (new Edit(data).ShowDialog() == DialogResult.OK)
-            {
-                _dictionary.Save();
-                RefreshTable();
-            }
+            if (new Edit(data).ShowDialog() == DialogResult.OK) Save();
         }
 
         private void Delete_Click(object sender, EventArgs e)
@@ -54,8 +51,7 @@ namespace Dictionary
             {
                 _dictionary.Remove(data);
                 dgvTable.ClearSelection();
-                _dictionary.Save();
-                RefreshTable();
+                Save();
             }
         }
 
@@ -73,7 +69,6 @@ namespace Dictionary
             //System.Console.WriteLine("There were {0} lines.", counter);
 
             OpenFileDialog FileDialog = new OpenFileDialog();
-            //openFileDialog1.InitialDirectory = "c:\\";
             FileDialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
             FileDialog.FilterIndex = 2;
             FileDialog.RestoreDirectory = true;
@@ -92,8 +87,7 @@ namespace Dictionary
                         _dictionary.Add(data);
                     }
                 }
-                _dictionary.Save();
-                RefreshTable();
+                Save();
             }
         }
 
@@ -116,10 +110,7 @@ namespace Dictionary
             if (File.Exists(Dictionary.BaseName))     // Если база создана, то выполняем
             {
                 _dictionary = Dictionary.Load();
-                if (_dictionary.DictionaryList.Count > 0)
-                {
-                    RefreshTable();
-                }
+                if (_dictionary.DictionaryList.Count > 0) RefreshTable();
             }
         }
 
@@ -131,7 +122,6 @@ namespace Dictionary
 
             // if (nodeName != "" && nodeName != "Фильмотека")
             // filtered = filtered.FindAll(v => v.Path == _dictionary.Options.Source + Path.DirectorySeparatorChar + nodeName);
-
 
             //int switch_filter = tscbTypeFilter.SelectedIndex;
             //switch (switch_filter)  // фильтр по категориям
@@ -150,7 +140,6 @@ namespace Dictionary
             //    case 2: filtered.Sort(Record.CompareByYear); break;
             //    default: break;
             //}
-
 
             dgvTable.DataSource = null;
             dgvTable.DataSource = filtered;
@@ -242,7 +231,7 @@ namespace Dictionary
                     c.Text = LData[i].WordRu;    //MessageBox.Show(c.Name);
                     i++;
                 }
-                
+
                 // var checkedRadio = new[] { groupBox2 }
                 //.SelectMany(g => g.Controls.OfType<RadioButton>()
                 //                         .Where(r => r.Checked));               
@@ -256,7 +245,7 @@ namespace Dictionary
                 //RadioButton rb = new RadioButton();
                 //rb.Location = new Point(200, 300 + 1 * 20);
                 //groupBox2.Controls.Add(rb);
-                
+
 
                 // var buttons = this.Controls.OfType<RadioButton>()
                 //           .FirstOrDefault(n => n.Checked);
@@ -289,10 +278,7 @@ namespace Dictionary
 
         private void timer_Tick(object sender, EventArgs e) // ежесекундно идет проверка и можно подсчитать среднее время ответа.
         {
-            if (isTimeRedZone(timeLeft))
-            {
-                timeLabel.BackColor = Color.Red;
-            }
+            if (isTimeRedZone(timeLeft)) timeLabel.BackColor = Color.Red;
 
             if (CheckTheAnswereD())
             {
@@ -348,18 +334,19 @@ namespace Dictionary
         private bool CheckTheAnswer()
         {
             // if (addend1 + addend2 == sum.Value)
-            if (addend1.ToString() == textBox2.Text)
-                return true;
-            else
-                return false;
+
+            return (addend1.ToString() == textBox2.Text) ? true : false;
+            //if (addend1.ToString() == textBox2.Text)
+            //    return true;
+            //else
+            //    return false;
         }
 
 
 
-       private void answer_Enter(object sender, EventArgs e)
-        {
-            // Select the whole answer in the NumericUpDown control.
-            NumericUpDown answerBox = sender as NumericUpDown;
+        private void answer_Enter(object sender, EventArgs e)
+        {            
+            NumericUpDown answerBox = sender as NumericUpDown;  // Select the whole answer in the NumericUpDown control.
 
             if (answerBox != null)
             {
@@ -370,16 +357,12 @@ namespace Dictionary
 
         private bool CheckTheAnswereD()
         {
-
             var checkedRadio = new[] { groupBox2 }
            .SelectMany(g => g.Controls.OfType<RadioButton>()
                                     .Where(r => r.Checked));
             foreach (var c in checkedRadio)
             {
-                if (c.Text == word)
-                    return true;
-                else
-                    return false;
+                return (c.Text == word) ? true : false;
             }
             return false;
         }
@@ -391,11 +374,12 @@ namespace Dictionary
             int switch_Find = cbTypeFind.SelectedIndex;
             switch (switch_Find)
             {
-                case 0: Find(0); break; // поиск по названию
-                case 1: Find(1); break; // поиск по году
+                case 0: Find(0); break; // поиск по слову
+                case 1: Find(1); break; // поиск по переводу
                 default: MessageBox.Show("Укажите критерий поиска!"); break;
             }
         }
+
 
         private void Find(int cell)
         {
@@ -431,4 +415,3 @@ namespace Dictionary
 
 
 }
-// msdn.microsoft.com/ru-ru/library/dd492171.aspx
