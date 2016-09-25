@@ -44,11 +44,11 @@
             this.tpExam = new System.Windows.Forms.TabPage();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.numericDic = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lbFind = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.timeLabelName = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -65,7 +65,7 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.tbDic = new System.Windows.Forms.TabPage();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lbFindType = new System.Windows.Forms.Label();
             this.tbFind = new System.Windows.Forms.TextBox();
             this.btnFind = new System.Windows.Forms.Button();
             this.cbTypeFind = new System.Windows.Forms.ComboBox();
@@ -80,10 +80,11 @@
             this.GLobalStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.FindStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.timerQuiz = new System.Windows.Forms.Timer(this.components);
+            this.label3 = new System.Windows.Forms.Label();
             this.MainMenu.SuspendLayout();
             this.tControl.SuspendLayout();
             this.tpExam.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericDic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -189,9 +190,10 @@
             this.tpExam.BackColor = System.Drawing.SystemColors.Control;
             this.tpExam.Controls.Add(this.checkBox1);
             this.tpExam.Controls.Add(this.label2);
-            this.tpExam.Controls.Add(this.numericUpDown2);
+            this.tpExam.Controls.Add(this.numericDic);
             this.tpExam.Controls.Add(this.numericUpDown1);
             this.tpExam.Controls.Add(this.label5);
+            this.tpExam.Controls.Add(this.label3);
             this.tpExam.Controls.Add(this.label4);
             this.tpExam.Controls.Add(this.label1);
             this.tpExam.Controls.Add(this.timeLabelName);
@@ -213,7 +215,7 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(673, 199);
+            this.checkBox1.Location = new System.Drawing.Point(377, 206);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(84, 17);
             this.checkBox1.TabIndex = 11;
@@ -229,17 +231,27 @@
             this.label2.Size = new System.Drawing.Size(173, 14);
             this.label2.TabIndex = 10;
             // 
-            // numericUpDown2
+            // numericDic
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(673, 163);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(75, 20);
-            this.numericUpDown2.TabIndex = 9;
-            this.numericUpDown2.Enter += new System.EventHandler(this.answer_Enter);
+            this.numericDic.Location = new System.Drawing.Point(377, 180);
+            this.numericDic.Minimum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.numericDic.Name = "numericDic";
+            this.numericDic.Size = new System.Drawing.Size(75, 20);
+            this.numericDic.TabIndex = 9;
+            this.numericDic.Value = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.numericDic.Enter += new System.EventHandler(this.answer_Enter);
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(347, 180);
+            this.numericUpDown1.Location = new System.Drawing.Point(315, 311);
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(75, 20);
             this.numericUpDown1.TabIndex = 9;
@@ -257,25 +269,25 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(599, 200);
+            this.label4.Location = new System.Drawing.Point(303, 207);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(76, 13);
             this.label4.TabIndex = 8;
             this.label4.Text = "Отображение";
             // 
-            // label3
+            // lbFind
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(498, 167);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(82, 13);
-            this.label3.TabIndex = 21;
-            this.label3.Text = "Строка поиска";
+            this.lbFind.AutoSize = true;
+            this.lbFind.Location = new System.Drawing.Point(498, 167);
+            this.lbFind.Name = "lbFind";
+            this.lbFind.Size = new System.Drawing.Size(82, 13);
+            this.lbFind.TabIndex = 21;
+            this.lbFind.Text = "Строка поиска";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(600, 142);
+            this.label1.Location = new System.Drawing.Point(304, 148);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(45, 13);
             this.label1.TabIndex = 8;
@@ -331,7 +343,7 @@
             // 
             this.groupBox1.Controls.Add(this.rbSelect);
             this.groupBox1.Controls.Add(this.rbInsert);
-            this.groupBox1.Location = new System.Drawing.Point(597, 58);
+            this.groupBox1.Location = new System.Drawing.Point(301, 78);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(151, 67);
             this.groupBox1.TabIndex = 6;
@@ -398,14 +410,14 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(347, 146);
+            this.textBox2.Location = new System.Drawing.Point(315, 285);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(75, 20);
             this.textBox2.TabIndex = 3;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(347, 114);
+            this.textBox1.Location = new System.Drawing.Point(315, 256);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(75, 20);
             this.textBox1.TabIndex = 2;
@@ -413,8 +425,8 @@
             // tbDic
             // 
             this.tbDic.BackColor = System.Drawing.SystemColors.Control;
-            this.tbDic.Controls.Add(this.label6);
-            this.tbDic.Controls.Add(this.label3);
+            this.tbDic.Controls.Add(this.lbFindType);
+            this.tbDic.Controls.Add(this.lbFind);
             this.tbDic.Controls.Add(this.tbFind);
             this.tbDic.Controls.Add(this.btnFind);
             this.tbDic.Controls.Add(this.cbTypeFind);
@@ -429,14 +441,14 @@
             this.tbDic.TabIndex = 0;
             this.tbDic.Text = "Словарь";
             // 
-            // label6
+            // lbFindType
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(498, 215);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(94, 13);
-            this.label6.TabIndex = 21;
-            this.label6.Text = "Критерий поиска";
+            this.lbFindType.AutoSize = true;
+            this.lbFindType.Location = new System.Drawing.Point(498, 215);
+            this.lbFindType.Name = "lbFindType";
+            this.lbFindType.Size = new System.Drawing.Size(94, 13);
+            this.lbFindType.TabIndex = 21;
+            this.lbFindType.Text = "Критерий поиска";
             // 
             // tbFind
             // 
@@ -570,6 +582,15 @@
             this.timerQuiz.Interval = 1000;
             this.timerQuiz.Tick += new System.EventHandler(this.timer_Tick);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(303, 182);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(69, 13);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Количество:";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -589,7 +610,7 @@
             this.tControl.ResumeLayout(false);
             this.tpExam.ResumeLayout(false);
             this.tpExam.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericDic)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
@@ -643,21 +664,22 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colWordRu;
         private System.Windows.Forms.DataGridViewTextBoxColumn qwe;
         private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.NumericUpDown numericDic;
+        private System.Windows.Forms.Label lbFind;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem MenuImport;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lbFindType;
         private System.Windows.Forms.TextBox tbFind;
         private System.Windows.Forms.Button btnFind;
         private System.Windows.Forms.ComboBox cbTypeFind;
         private System.Windows.Forms.ToolStripStatusLabel FindStatusLabel;
         private System.Windows.Forms.ToolStripMenuItem MenuHelp;
         private System.Windows.Forms.ToolStripMenuItem MenuAbout;
+        private System.Windows.Forms.Label label3;
     }
 }
 

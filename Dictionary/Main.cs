@@ -147,6 +147,7 @@ namespace Dictionary
             //if (selected != null)
             //    SelectRecord(dgvTable, selected);
             GLobalStatusLabel.Text = "Коллекция из " + _dictionary.DictionaryList.Count.ToString() + " элементов";
+            numericDic.Maximum = _dictionary.DictionaryList.Count;
         }
 
 
@@ -191,9 +192,6 @@ namespace Dictionary
         }
 
 
-        /// <summary>
-        /// Start the quiz by filling in all of the problem values and starting the timer. 
-        /// </summary>
         public void StartTheQuiz()
         {
             addend1 = randomizer.Next(51);
