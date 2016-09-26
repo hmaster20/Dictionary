@@ -58,13 +58,10 @@ namespace Dictionary
 
         private void import_Click(object sender, EventArgs e)
         {
-            //// Read the file and display it line by line.
             //System.IO.StreamReader file = new System.IO.StreamReader(@"c:\test.txt");
             //while ((line = file.ReadLine()) != null)
-            //{
-            //    System.Console.WriteLine(line);
-            //    counter++;
-            //}
+            //{  System.Console.WriteLine(line);
+            //    counter++;    }
             //file.Close();
             //System.Console.WriteLine("There were {0} lines.", counter);
 
@@ -97,10 +94,8 @@ namespace Dictionary
             if (dgv != null && dgv.SelectedRows.Count > 0 && dgv.SelectedRows[0].Index > -1)
             {
                 Data data = null;
-                if (dgv.SelectedRows[0].DataBoundItem is Data)
-                    data = dgv.SelectedRows[0].DataBoundItem as Data;
-                if (data != null)
-                    return data;
+                if (dgv.SelectedRows[0].DataBoundItem is Data) data = dgv.SelectedRows[0].DataBoundItem as Data;
+                if (data != null) return data;
             }
             return null;
         }
@@ -150,27 +145,54 @@ namespace Dictionary
             numericDic.Maximum = _dictionary.DictionaryList.Count;
         }
 
+        private void btnFind_Click(object sender, EventArgs e)
+        {
+            int switch_Find = cbTypeFind.SelectedIndex;
+            switch (switch_Find)
+            {
+                case 0: Find(0); break; // поиск по слову
+                case 1: Find(1); break; // поиск по переводу
+                default: MessageBox.Show("Укажите критерий поиска!"); break;
+            }
+        }
 
 
+        private void Find(int ColumnID)
+        {
+            Regex regex = new Regex(tbFind.Text, RegexOptions.IgnoreCase);
+            int i = 0;
+
+            dgvTable.ClearSelection();
+            dgvTable.MultiSelect = true;    // Требуется для выбора всех строк
+            try
+            {
+                foreach (DataGridViewRow row in dgvTable.Rows)
+                {
+                    if (regex.IsMatch(row.Cells[ColumnID].Value.ToString()))
+                    {
+                        i++;
+                        row.Selected = true;
+                        //break; //Требуется для выбора одно строки
+                    }
+                }
+                FindStatusLabel.Text = "Найдено " + i + " элементов.";
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+        }
 
 
+        private void tabControl_ResetFindStatus_Click(object sender, EventArgs e)
+        {
+            tbFind.Text = "";
+            FindStatusLabel.Text = "";
+
+        }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        //################################################################################################################
 
 
 
@@ -183,16 +205,11 @@ namespace Dictionary
 
         private void startButton_Click(object sender, EventArgs e)
         {
-            StartTheQuiz();
             StartTheExam();
             startButton.Enabled = false;
-
-            if (rbSelect.Checked) { label1.Text = "Гадаем по словам"; }
-            if (rbInsert.Checked) { label1.Text = "Пишем словечки"; }
         }
 
-
-        public void StartTheQuiz()
+        private void StartTheExam()
         {
             addend1 = randomizer.Next(51);
             addend2 = randomizer.Next(51);
@@ -202,10 +219,11 @@ namespace Dictionary
             timeLeft = 15;
             timeLabel.Text = "15 seconds";
             timerQuiz.Start();
-        }
 
-        private void StartTheExam()
-        {
+            if (rbSelect.Checked) { label1.Text = "Гадаем по словам"; }
+            if (rbInsert.Checked) { label1.Text = "Пишем словечки"; }
+
+
             if (_dictionary.DictionaryList.Count > 3)
             {
                 List<Data> LData = new List<Data>();
@@ -219,7 +237,7 @@ namespace Dictionary
                 }
 
                 int i = 0;
-                label2.Text = LData[i].WordEn;
+                labelWord.Text = LData[i].WordEn;
                 word = LData[i].WordRu;
 
                 var checkedRadio = new[] { groupBox2 }
@@ -274,40 +292,24 @@ namespace Dictionary
             return (timeLeft > 0 && timeLeft < 6);
         }
 
-        private void timer_Tick(object sender, EventArgs e) // ежесекундно идет проверка и можно подсчитать среднее время ответа.
+        private void ResetQuiz()
+        {
+            startButton.Enabled = true;
+            timeLabel.BackColor = default(Color);
+            labelWord.Text = "";
+
+            var checkedRadio = new[] { groupBox2 }.SelectMany(g => g.Controls.OfType<RadioButton>());
+            foreach (var c in checkedRadio)
+            {
+                c.Checked = false;
+                c.Text = "";
+            }
+        }
+
+        private void TimeCheck()
         {
             if (isTimeRedZone(timeLeft)) timeLabel.BackColor = Color.Red;
 
-            if (CheckTheAnswereD())
-            {
-                timerQuiz.Stop();
-                DialogResult result = MessageBox.Show("Ты крут!", "Congratulations!");
-                if (result == DialogResult.OK)
-                {
-                    MessageBox.Show("Test");   //this.Close();
-                }
-                startButton.Enabled = true;
-                timeLabel.BackColor = default(Color);
-
-                var checkedRadio = new[] { groupBox2 }.SelectMany(g => g.Controls.OfType<RadioButton>());
-                foreach (var c in checkedRadio)
-                {
-                    c.Checked = false;
-                    c.Text = "";
-                }
-                label2.Text = "";
-            }
-
-
-
-            if (CheckTheAnswer())
-            {
-                timerQuiz.Stop();
-                MessageBox.Show("You got all the answers right!",
-                                "Congratulations!");
-                startButton.Enabled = true;
-                timeLabel.BackColor = default(Color);
-            }
             if (timeLeft > 0)
             {
                 timeLeft--;
@@ -316,44 +318,15 @@ namespace Dictionary
             else
             {
                 timerQuiz.Stop();
-                timeLabel.Text = "Time's up!";
-                MessageBox.Show("You didn't finish in time.", "Sorry!");
+                timeLabel.Text = "Время вышло!";
+                MessageBox.Show("You didn't finish in time.", "Извините!");
                 // sum.Value = addend1 + addend2; //правильный ответ этот
                 startButton.Enabled = true;
                 timeLabel.BackColor = default(Color);
             }
-            timeLabel.Text = "";
         }
 
-        /// <summary>
-        /// Check the answer to see if the user got everything right.
-        /// </summary>
-        /// <returns>True if the answer's correct, false otherwise.</returns>
-        private bool CheckTheAnswer()
-        {
-            // if (addend1 + addend2 == sum.Value)
-
-            return (addend1.ToString() == textBox2.Text) ? true : false;
-            //if (addend1.ToString() == textBox2.Text)
-            //    return true;
-            //else
-            //    return false;
-        }
-
-
-
-        private void answer_Enter(object sender, EventArgs e)
-        {            
-            NumericUpDown answerBox = sender as NumericUpDown;  // Select the whole answer in the NumericUpDown control.
-
-            if (answerBox != null)
-            {
-                int lengthOfAnswer = answerBox.Value.ToString().Length;
-                answerBox.Select(0, lengthOfAnswer);
-            }
-        }
-
-        private bool CheckTheAnswereD()
+        private bool CheckAnswere()
         {
             var checkedRadio = new[] { groupBox2 }
            .SelectMany(g => g.Controls.OfType<RadioButton>()
@@ -364,51 +337,67 @@ namespace Dictionary
             }
             return false;
         }
- 
-        private void btnFind_Click(object sender, EventArgs e)
+
+        private void timer_Tick(object sender, EventArgs e)
         {
-            int switch_Find = cbTypeFind.SelectedIndex;
-            switch (switch_Find)
+            if (CheckAnswere())
             {
-                case 0: Find(0); break; // поиск по слову
-                case 1: Find(1); break; // поиск по переводу
-                default: MessageBox.Show("Укажите критерий поиска!"); break;
+                timerQuiz.Stop();
+                DialogResult result = MessageBox.Show("Ты крут!", "Congratulations!");
+                //if (result == DialogResult.OK)
+                //{
+                //    MessageBox.Show("Test");   //this.Close();
+                //}
+                ResetQuiz();
             }
+            TimeCheck();
+            timeLabel.Text = "";
         }
 
 
-        private void Find(int cell)
-        {
-            Regex regex = new Regex(tbFind.Text, RegexOptions.IgnoreCase);
-            int i = 0;
 
-            dgvTable.ClearSelection();
-            dgvTable.MultiSelect = true;    // Требуется для выбора всех строк
-            try
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //if (CheckTheAnswer())
+        //{
+        //    timerQuiz.Stop();
+        //    MessageBox.Show("You got all the answers right!",
+        //                    "Congratulations!");
+        //    startButton.Enabled = true;
+        //    timeLabel.BackColor = default(Color);
+        //}
+
+        /// <summary>
+        /// Check the answer to see if the user got everything right.
+        /// </summary>
+        /// <returns>True if the answer's correct, false otherwise.</returns>
+        //private bool CheckTheAnswer()
+        //{
+        //    return (addend1.ToString() == textBox2.Text) ? true : false;
+        //}
+
+
+        private void answer_Enter(object sender, EventArgs e)
+        {
+            NumericUpDown answerBox = sender as NumericUpDown;  // Select the whole answer in the NumericUpDown control.
+            //Выделите весь ответ в элементе управления NumericUpDown.
+            if (answerBox != null)
             {
-                foreach (DataGridViewRow row in dgvTable.Rows)
-                {
-                    if (regex.IsMatch(row.Cells[cell].Value.ToString()))
-                    {
-                        i++;
-                        row.Selected = true;
-                        //break; //Требуется для выбора одно строки
-                    }
-                }
-                FindStatusLabel.Text = "Найдено " + i + " элементов.";
-            }
-            catch (Exception exc)
-            {
-                MessageBox.Show(exc.Message);
+                int lengthOfAnswer = answerBox.Value.ToString().Length;
+                answerBox.Select(0, lengthOfAnswer);
             }
         }
 
-
-        private void tControl_Click(object sender, EventArgs e)
-        {
-            FindStatusLabel.Text = "";
-        }
     }
-
-
 }

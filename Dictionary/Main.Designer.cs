@@ -33,28 +33,28 @@
             this.MenuFile = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuCreate = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuMerge = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolSep1 = new System.Windows.Forms.ToolStripSeparator();
             this.MenuImport = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolSep2 = new System.Windows.Forms.ToolStripSeparator();
             this.MenuExit = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuOptions = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuAbout = new System.Windows.Forms.ToolStripMenuItem();
-            this.tControl = new System.Windows.Forms.TabControl();
+            this.tabControl = new System.Windows.Forms.TabControl();
             this.tpExam = new System.Windows.Forms.TabPage();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.labelWord = new System.Windows.Forms.Label();
             this.numericDic = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.lbFind = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.timeLabelName = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.rB3 = new System.Windows.Forms.RadioButton();
+            this.rB2 = new System.Windows.Forms.RadioButton();
+            this.rB1 = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.rbSelect = new System.Windows.Forms.RadioButton();
             this.rbInsert = new System.Windows.Forms.RadioButton();
@@ -66,6 +66,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.tbDic = new System.Windows.Forms.TabPage();
             this.lbFindType = new System.Windows.Forms.Label();
+            this.lbFind = new System.Windows.Forms.Label();
             this.tbFind = new System.Windows.Forms.TextBox();
             this.btnFind = new System.Windows.Forms.Button();
             this.cbTypeFind = new System.Windows.Forms.ComboBox();
@@ -76,13 +77,12 @@
             this.qwe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Delete = new System.Windows.Forms.Button();
             this.Add = new System.Windows.Forms.Button();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.statusDown = new System.Windows.Forms.StatusStrip();
             this.GLobalStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.FindStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.timerQuiz = new System.Windows.Forms.Timer(this.components);
-            this.label3 = new System.Windows.Forms.Label();
             this.MainMenu.SuspendLayout();
-            this.tControl.SuspendLayout();
+            this.tabControl.SuspendLayout();
             this.tpExam.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericDic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -90,7 +90,7 @@
             this.groupBox1.SuspendLayout();
             this.tbDic.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTable)).BeginInit();
-            this.statusStrip1.SuspendLayout();
+            this.statusDown.SuspendLayout();
             this.SuspendLayout();
             // 
             // MainMenu
@@ -110,9 +110,9 @@
             this.MenuFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MenuCreate,
             this.MenuMerge,
-            this.toolStripSeparator2,
+            this.toolSep1,
             this.MenuImport,
-            this.toolStripSeparator1,
+            this.toolSep2,
             this.MenuExit});
             this.MenuFile.Name = "MenuFile";
             this.MenuFile.Size = new System.Drawing.Size(48, 20);
@@ -130,10 +130,10 @@
             this.MenuMerge.Size = new System.Drawing.Size(171, 22);
             this.MenuMerge.Text = "Объединить базы";
             // 
-            // toolStripSeparator2
+            // toolSep1
             // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(168, 6);
+            this.toolSep1.Name = "toolSep1";
+            this.toolSep1.Size = new System.Drawing.Size(168, 6);
             // 
             // MenuImport
             // 
@@ -142,10 +142,10 @@
             this.MenuImport.Text = "Импорт..";
             this.MenuImport.Click += new System.EventHandler(this.import_Click);
             // 
-            // toolStripSeparator1
+            // toolSep2
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(168, 6);
+            this.toolSep2.Name = "toolSep2";
+            this.toolSep2.Size = new System.Drawing.Size(168, 6);
             // 
             // MenuExit
             // 
@@ -173,23 +173,23 @@
             this.MenuAbout.Size = new System.Drawing.Size(149, 22);
             this.MenuAbout.Text = "О программе";
             // 
-            // tControl
+            // tabControl
             // 
-            this.tControl.Controls.Add(this.tpExam);
-            this.tControl.Controls.Add(this.tbDic);
-            this.tControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tControl.Location = new System.Drawing.Point(0, 24);
-            this.tControl.Name = "tControl";
-            this.tControl.SelectedIndex = 0;
-            this.tControl.Size = new System.Drawing.Size(845, 462);
-            this.tControl.TabIndex = 1;
-            this.tControl.Click += new System.EventHandler(this.tControl_Click);
+            this.tabControl.Controls.Add(this.tpExam);
+            this.tabControl.Controls.Add(this.tbDic);
+            this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl.Location = new System.Drawing.Point(0, 24);
+            this.tabControl.Name = "tabControl";
+            this.tabControl.SelectedIndex = 0;
+            this.tabControl.Size = new System.Drawing.Size(845, 462);
+            this.tabControl.TabIndex = 1;
+            this.tabControl.Click += new System.EventHandler(this.tabControl_ResetFindStatus_Click);
             // 
             // tpExam
             // 
             this.tpExam.BackColor = System.Drawing.SystemColors.Control;
             this.tpExam.Controls.Add(this.checkBox1);
-            this.tpExam.Controls.Add(this.label2);
+            this.tpExam.Controls.Add(this.labelWord);
             this.tpExam.Controls.Add(this.numericDic);
             this.tpExam.Controls.Add(this.numericUpDown1);
             this.tpExam.Controls.Add(this.label5);
@@ -222,14 +222,14 @@
             this.checkBox1.Text = "По порядку";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // labelWord
             // 
-            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label2.Location = new System.Drawing.Point(83, 146);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(173, 14);
-            this.label2.TabIndex = 10;
+            this.labelWord.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelWord.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.labelWord.Location = new System.Drawing.Point(83, 146);
+            this.labelWord.Name = "labelWord";
+            this.labelWord.Size = new System.Drawing.Size(173, 14);
+            this.labelWord.TabIndex = 10;
             // 
             // numericDic
             // 
@@ -266,6 +266,15 @@
             this.label5.TabIndex = 8;
             this.label5.Text = "Статистика";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(303, 182);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(69, 13);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Количество:";
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -274,15 +283,6 @@
             this.label4.Size = new System.Drawing.Size(76, 13);
             this.label4.TabIndex = 8;
             this.label4.Text = "Отображение";
-            // 
-            // lbFind
-            // 
-            this.lbFind.AutoSize = true;
-            this.lbFind.Location = new System.Drawing.Point(498, 167);
-            this.lbFind.Name = "lbFind";
-            this.lbFind.Size = new System.Drawing.Size(82, 13);
-            this.lbFind.TabIndex = 21;
-            this.lbFind.Text = "Строка поиска";
             // 
             // label1
             // 
@@ -305,9 +305,9 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.radioButton3);
-            this.groupBox2.Controls.Add(this.radioButton2);
-            this.groupBox2.Controls.Add(this.radioButton1);
+            this.groupBox2.Controls.Add(this.rB3);
+            this.groupBox2.Controls.Add(this.rB2);
+            this.groupBox2.Controls.Add(this.rB1);
             this.groupBox2.Location = new System.Drawing.Point(80, 180);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(176, 92);
@@ -315,29 +315,29 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Выбери правильный ответ:";
             // 
-            // radioButton3
+            // rB3
             // 
-            this.radioButton3.Location = new System.Drawing.Point(6, 65);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(158, 17);
-            this.radioButton3.TabIndex = 5;
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.rB3.Location = new System.Drawing.Point(6, 65);
+            this.rB3.Name = "rB3";
+            this.rB3.Size = new System.Drawing.Size(158, 17);
+            this.rB3.TabIndex = 5;
+            this.rB3.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // rB2
             // 
-            this.radioButton2.Location = new System.Drawing.Point(6, 42);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(158, 17);
-            this.radioButton2.TabIndex = 5;
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rB2.Location = new System.Drawing.Point(6, 42);
+            this.rB2.Name = "rB2";
+            this.rB2.Size = new System.Drawing.Size(158, 17);
+            this.rB2.TabIndex = 5;
+            this.rB2.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // rB1
             // 
-            this.radioButton1.Location = new System.Drawing.Point(6, 19);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(158, 17);
-            this.radioButton1.TabIndex = 5;
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rB1.Location = new System.Drawing.Point(6, 19);
+            this.rB1.Name = "rB1";
+            this.rB1.Size = new System.Drawing.Size(158, 17);
+            this.rB1.TabIndex = 5;
+            this.rB1.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
@@ -449,6 +449,15 @@
             this.lbFindType.TabIndex = 21;
             this.lbFindType.Text = "Критерий поиска";
             // 
+            // lbFind
+            // 
+            this.lbFind.AutoSize = true;
+            this.lbFind.Location = new System.Drawing.Point(498, 167);
+            this.lbFind.Name = "lbFind";
+            this.lbFind.Size = new System.Drawing.Size(82, 13);
+            this.lbFind.TabIndex = 21;
+            this.lbFind.Text = "Строка поиска";
+            // 
             // tbFind
             // 
             this.tbFind.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -554,15 +563,15 @@
             this.Add.UseVisualStyleBackColor = true;
             this.Add.Click += new System.EventHandler(this.Add_Click);
             // 
-            // statusStrip1
+            // statusDown
             // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.statusDown.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.GLobalStatusLabel,
             this.FindStatusLabel});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 464);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(845, 22);
-            this.statusStrip1.TabIndex = 0;
+            this.statusDown.Location = new System.Drawing.Point(0, 464);
+            this.statusDown.Name = "statusDown";
+            this.statusDown.Size = new System.Drawing.Size(845, 22);
+            this.statusDown.TabIndex = 0;
             // 
             // GLobalStatusLabel
             // 
@@ -581,22 +590,13 @@
             this.timerQuiz.Interval = 1000;
             this.timerQuiz.Tick += new System.EventHandler(this.timer_Tick);
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(303, 182);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(69, 13);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Количество:";
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(845, 486);
-            this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.tControl);
+            this.Controls.Add(this.statusDown);
+            this.Controls.Add(this.tabControl);
             this.Controls.Add(this.MainMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MainMenuStrip = this.MainMenu;
@@ -606,7 +606,7 @@
             this.Load += new System.EventHandler(this.Main_Load);
             this.MainMenu.ResumeLayout(false);
             this.MainMenu.PerformLayout();
-            this.tControl.ResumeLayout(false);
+            this.tabControl.ResumeLayout(false);
             this.tpExam.ResumeLayout(false);
             this.tpExam.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericDic)).EndInit();
@@ -617,8 +617,8 @@
             this.tbDic.ResumeLayout(false);
             this.tbDic.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTable)).EndInit();
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
+            this.statusDown.ResumeLayout(false);
+            this.statusDown.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -628,20 +628,19 @@
 
         private System.Windows.Forms.MenuStrip MainMenu;
         private System.Windows.Forms.ToolStripMenuItem MenuFile;
-        private System.Windows.Forms.TabControl tControl;
+        private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tbDic;
         private System.Windows.Forms.TabPage tpExam;
-        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.StatusStrip statusDown;
         private System.Windows.Forms.Button Delete;
         private System.Windows.Forms.Button Add;
         private System.Windows.Forms.DataGridView dgvTable;
         private System.Windows.Forms.Button Edit;
         private System.Windows.Forms.ToolStripMenuItem MenuCreate;
         private System.Windows.Forms.ToolStripMenuItem MenuMerge;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripSeparator toolSep2;
         private System.Windows.Forms.ToolStripMenuItem MenuExit;
         private System.Windows.Forms.ToolStripMenuItem MenuOptions;
-        private System.Windows.Forms.ToolStripMenuItem настройкаToolStripMenuItem;
         private System.Windows.Forms.ToolStripStatusLabel GLobalStatusLabel;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
@@ -654,11 +653,11 @@
         private System.Windows.Forms.Label timeLabelName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelWord;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton rB3;
+        private System.Windows.Forms.RadioButton rB2;
+        private System.Windows.Forms.RadioButton rB1;
         private System.Windows.Forms.DataGridViewTextBoxColumn colWordEn;
         private System.Windows.Forms.DataGridViewTextBoxColumn colWordRu;
         private System.Windows.Forms.DataGridViewTextBoxColumn qwe;
@@ -669,7 +668,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripSeparator toolSep1;
         private System.Windows.Forms.ToolStripMenuItem MenuImport;
         private System.Windows.Forms.Label lbFindType;
         private System.Windows.Forms.TextBox tbFind;
