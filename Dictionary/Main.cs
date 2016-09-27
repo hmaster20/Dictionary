@@ -344,10 +344,7 @@ namespace Dictionary
             {
                 timerQuiz.Stop();
                 DialogResult result = MessageBox.Show("Ты крут!", "Congratulations!");
-                //if (result == DialogResult.OK)
-                //{
-                //    MessageBox.Show("Test");   //this.Close();
-                //}
+                //if (result == DialogResult.OK) MessageBox.Show("Test");   //this.Close();
                 ResetQuiz();
             }
             TimeCheck();
