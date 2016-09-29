@@ -8,6 +8,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DicEngRus", "DicEngRus", "{FF676151-9D87-4567-869A-E27DEA87781D}"
 	ProjectSection(SolutionItems) = preProject
 		ReadMe.txt = ReadMe.txt
+		Разработка.txt = Разработка.txt
 	EndProjectSection
 EndProject
 Global
