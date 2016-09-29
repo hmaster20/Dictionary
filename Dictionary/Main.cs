@@ -139,8 +139,7 @@ namespace Dictionary
             dgvTable.DataSource = null;
             dgvTable.DataSource = filtered;
 
-            //if (selected != null)
-            //    SelectRecord(dgvTable, selected);
+            //if (selected != null) SelectRecord(dgvTable, selected);
             GLobalStatusLabel.Text = "Коллекция из " + _dictionary.DictionaryList.Count.ToString() + " элементов";
             numericDic.Maximum = _dictionary.DictionaryList.Count;
         }
@@ -188,7 +187,6 @@ namespace Dictionary
         {
             tbFind.Text = "";
             FindStatusLabel.Text = "";
-
         }
 
 
