@@ -36,12 +36,16 @@
             this.lEn = new System.Windows.Forms.Label();
             this.lRu = new System.Windows.Forms.Label();
             this.lType = new System.Windows.Forms.Label();
+            this.tbTranscription = new System.Windows.Forms.TextBox();
+            this.lTranscription = new System.Windows.Forms.Label();
+            this.tbRusRead = new System.Windows.Forms.TextBox();
+            this.lRusRead = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btOk
             // 
             this.btOk.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btOk.Location = new System.Drawing.Point(49, 212);
+            this.btOk.Location = new System.Drawing.Point(88, 258);
             this.btOk.Name = "btOk";
             this.btOk.Size = new System.Drawing.Size(75, 23);
             this.btOk.TabIndex = 3;
@@ -52,7 +56,7 @@
             // btCancel
             // 
             this.btCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btCancel.Location = new System.Drawing.Point(187, 212);
+            this.btCancel.Location = new System.Drawing.Point(193, 258);
             this.btCancel.Name = "btCancel";
             this.btCancel.Size = new System.Drawing.Size(75, 23);
             this.btCancel.TabIndex = 4;
@@ -62,14 +66,14 @@
             // 
             // tbWordEn
             // 
-            this.tbWordEn.Location = new System.Drawing.Point(97, 36);
+            this.tbWordEn.Location = new System.Drawing.Point(115, 36);
             this.tbWordEn.Name = "tbWordEn";
             this.tbWordEn.Size = new System.Drawing.Size(182, 20);
             this.tbWordEn.TabIndex = 0;
             // 
             // tbWordRu
             // 
-            this.tbWordRu.Location = new System.Drawing.Point(97, 75);
+            this.tbWordRu.Location = new System.Drawing.Point(115, 75);
             this.tbWordRu.Name = "tbWordRu";
             this.tbWordRu.Size = new System.Drawing.Size(182, 20);
             this.tbWordRu.TabIndex = 1;
@@ -78,7 +82,7 @@
             // 
             this.cbType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbType.FormattingEnabled = true;
-            this.cbType.Location = new System.Drawing.Point(97, 116);
+            this.cbType.Location = new System.Drawing.Point(115, 181);
             this.cbType.Name = "cbType";
             this.cbType.Size = new System.Drawing.Size(182, 21);
             this.cbType.TabIndex = 2;
@@ -86,7 +90,7 @@
             // lEn
             // 
             this.lEn.AutoSize = true;
-            this.lEn.Location = new System.Drawing.Point(29, 45);
+            this.lEn.Location = new System.Drawing.Point(29, 39);
             this.lEn.Name = "lEn";
             this.lEn.Size = new System.Drawing.Size(38, 13);
             this.lEn.TabIndex = 3;
@@ -104,21 +108,57 @@
             // lType
             // 
             this.lType.AutoSize = true;
-            this.lType.Location = new System.Drawing.Point(29, 119);
+            this.lType.Location = new System.Drawing.Point(29, 181);
             this.lType.Name = "lType";
             this.lType.Size = new System.Drawing.Size(26, 13);
             this.lType.TabIndex = 3;
             this.lType.Text = "Тип";
             // 
+            // tbTranscription
+            // 
+            this.tbTranscription.Location = new System.Drawing.Point(115, 110);
+            this.tbTranscription.Name = "tbTranscription";
+            this.tbTranscription.Size = new System.Drawing.Size(182, 20);
+            this.tbTranscription.TabIndex = 1;
+            // 
+            // lTranscription
+            // 
+            this.lTranscription.AutoSize = true;
+            this.lTranscription.Location = new System.Drawing.Point(29, 113);
+            this.lTranscription.Name = "lTranscription";
+            this.lTranscription.Size = new System.Drawing.Size(80, 13);
+            this.lTranscription.TabIndex = 3;
+            this.lTranscription.Text = "Транскрипция";
+            // 
+            // tbRusRead
+            // 
+            this.tbRusRead.Location = new System.Drawing.Point(115, 147);
+            this.tbRusRead.Name = "tbRusRead";
+            this.tbRusRead.Size = new System.Drawing.Size(182, 20);
+            this.tbRusRead.TabIndex = 1;
+            // 
+            // lRusRead
+            // 
+            this.lRusRead.AutoSize = true;
+            this.lRusRead.Location = new System.Drawing.Point(29, 150);
+            this.lRusRead.Name = "lRusRead";
+            this.lRusRead.Size = new System.Drawing.Size(83, 13);
+            this.lRusRead.TabIndex = 3;
+            this.lRusRead.Text = "Произношение";
+            // 
             // Edit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(306, 261);
+            this.ClientSize = new System.Drawing.Size(350, 326);
             this.Controls.Add(this.lType);
+            this.Controls.Add(this.lRusRead);
+            this.Controls.Add(this.lTranscription);
             this.Controls.Add(this.lRu);
             this.Controls.Add(this.lEn);
             this.Controls.Add(this.cbType);
+            this.Controls.Add(this.tbRusRead);
+            this.Controls.Add(this.tbTranscription);
             this.Controls.Add(this.tbWordRu);
             this.Controls.Add(this.tbWordEn);
             this.Controls.Add(this.btCancel);
@@ -128,7 +168,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Edit";
+            this.Text = "Редактирование";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Edit_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -145,5 +185,9 @@
         private System.Windows.Forms.Label lEn;
         private System.Windows.Forms.Label lRu;
         private System.Windows.Forms.Label lType;
+        private System.Windows.Forms.TextBox tbTranscription;
+        private System.Windows.Forms.Label lTranscription;
+        private System.Windows.Forms.TextBox tbRusRead;
+        private System.Windows.Forms.Label lRusRead;
     }
 }
