@@ -23,5 +23,17 @@ namespace Dictionary
         предлоги,
         прочие
     }
+
+//adj – adjective – имя прилагательное
+//adv – adverb – наречие
+//conj – conjunction – союз
+//n – noun – имя существительное
+//num – numeral – числительное
+//obj – objective – объектная форма
+//poss – possessive – притяжательная форма
+//pl – plural – множественное число
+//prep – preposition – предлог
+//pron – pronoun – местоимение
+//v – verb – глагол
 }
 
