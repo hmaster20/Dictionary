@@ -146,8 +146,7 @@ namespace Dictionary
 
         private void btnFind_Click(object sender, EventArgs e)
         {
-            int switch_Find = cbTypeFind.SelectedIndex;
-            switch (switch_Find)
+            switch (cbTypeFind.SelectedIndex)
             {
                 case 0: Find(0); break; // поиск по слову
                 case 1: Find(1); break; // поиск по переводу
