@@ -40,6 +40,8 @@
             this.lTranscription = new System.Windows.Forms.Label();
             this.tbRusRead = new System.Windows.Forms.TextBox();
             this.lRusRead = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // btOk
@@ -146,11 +148,32 @@
             this.lRusRead.TabIndex = 3;
             this.lRusRead.Text = "Произношение";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(315, 145);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Добавить ";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(315, 108);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(75, 24);
+            this.comboBox1.TabIndex = 6;
+            // 
             // Edit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(350, 326);
+            this.ClientSize = new System.Drawing.Size(478, 326);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.lType);
             this.Controls.Add(this.lRusRead);
             this.Controls.Add(this.lTranscription);
@@ -169,6 +192,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Редактирование";
+            this.Load += new System.EventHandler(this.Edit_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Edit_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -189,5 +213,7 @@
         private System.Windows.Forms.Label lTranscription;
         private System.Windows.Forms.TextBox tbRusRead;
         private System.Windows.Forms.Label lRusRead;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
