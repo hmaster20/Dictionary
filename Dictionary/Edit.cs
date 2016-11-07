@@ -71,5 +71,31 @@ namespace Dictionary
         {
             if (e.KeyCode == Keys.Escape) Close();
         }
+
+        private void Edit_Load(object sender, EventArgs e)
+        {
+            //$specialCharacters.= "Latin-1 Supplement".PHP_EOL;
+            //$specialCharacters.= "ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõö÷øùúûüýþÿ".PHP_EOL;
+            //$specialCharacters.= "Latin Extended-A".PHP_EOL;
+            //$specialCharacters.= "ĀāĂăĄąĆćĈĉĊċČčĎďĐđĒēĔĕĖėĘęĚěĜĝĞğĠġĢģĤĥĦħĨĩĪīĬĭĮįİıĲĳĴĵĶķĸĹĺĻļĽľĿŀŁłŃńŅņŇňŉŊŋŌōŎŏŐőŒœŔŕŖŗŘřŚśŜŝŞşŠšŢţŤťŦŧŨũŪūŬŭŮůŰűŲųŴŵŶŷŸŹźŻżŽžſ".PHP_EOL;
+            //$specialCharacters.= "Latin Extended-B".PHP_EOL;
+            //$specialCharacters.= "ƒǺǻǼǽǾǿ".PHP_EOL;
+            //$specialCharacters.= "Latin Extended Additional".PHP_EOL;
+            //$specialCharacters.= "ẀẁẂẃẄẅỲỳ".PHP_EOL;
+
+            string specialCharacters =  "ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõö÷øùúûüýþÿ";
+
+            char[] arr = specialCharacters.ToCharArray();
+
+            foreach (var item in arr)
+            {
+                comboBox1.Items.Add(item);
+            }
+           
+
+
+
+
+        }
     }
 }
